@@ -1,32 +1,40 @@
-import React from 'react'
-import { DynamicBackground } from './DynamicBackground'
-import Background from '../assets/images/HeroSectionBackground.jpg'
-import { Button } from './UI/Button'
+import React from "react";
+import { DynamicBackground } from "./DynamicBackground";
+import Background from "../assets/images/HeroSectionBackground.jpg";
+import supportTesa from "../assets/icons/Vector.png"
+import technology from "../assets/gifs/engineerCap.gif"
+import engineer from "../assets/images/engineer.png"
+import { Button } from "./UI/Button";
 
 export const HeroSection = () => {
   return (
-    <div className='flex h-[100dvh] w-full relative px-1 border-l-[1px] border-[#07101B] border-r-[1px]'>
-      <DynamicBackground imageUrl={Background}/>
-      <div className='flex flex-col h-full items-center z-10'>
+    <div className="flex h-[100dvh] w-full relative px-8 items-end">
+      <DynamicBackground imageUrl={Background} />
+      <div className="w-full h-[90%] flex  border-l-[1px] border-[#07101B] border-r-[1px] z-10 px-6">
+      <div className="flex flex-col h-full w-[40%] justify-center">
         <div>
-          <h1></h1>
+          <h1>TESA</h1>
         </div>
         <div>
-          <h3>
-
-          </h3>
+          <h3>TECHNOLOGY AND ENGINEERING STUDENTS’ ASSOCIATION</h3>
         </div>
         <div>
           <p>
-
+            Welcome to the hub of future tech leaders and engineering pioneers.
+            A dynamic world where creativity meets technology, and innovation
+            knows no bounds. Join us in shaping the future, one breakthrough at
+            a time.
           </p>
         </div>
         <div>
-          <Button/>
+          <Button color={"#392B1A"} title={"Support TESA"} icon={supportTesa} />
         </div>
       </div>
-      <div className='flex h-full items-end z-10'>
+      <div className="flex h-full w-[60%] items-end z-10 relative">
+        <img src={technology} alt="" className="absolute bottom-10 h-[80%] left-[110px] object-contain"/>
+        <img src={engineer} alt="" className="h-[90%] w-full object-cover " style={{objectPosition: "30px"}}  />
+      </div>
       </div>
     </div>
-  )
-}
+  );
+};
