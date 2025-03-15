@@ -6,6 +6,7 @@ import { Resources } from "../pages/Resources";
 import { Payments } from "../pages/Payments";
 import { Contact } from "../pages/Contact";
 import { PageNotFound } from "../pages/PageNotFound";
+import { Updates } from "../pages/Updates";
 
 export const AnimatedRoutes = () => {
     const location = useLocation();
@@ -15,6 +16,7 @@ export const AnimatedRoutes = () => {
               <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<LandingPage/>} exact />
                   <Route path="/scholarships" element={<Scholarships/>} />
+                  <Route path="/updates" element={<Updates/>} />
                   <Route path="/resources" element={<Resources/>} />
                   <Route path="/payments" element={<Payments/>} />
                   <Route path="/contact" element={<Contact/>} />
