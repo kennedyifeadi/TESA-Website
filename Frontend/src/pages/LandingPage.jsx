@@ -3,6 +3,7 @@ import { HeroSection } from '../components/HeroSection'
 import { Framework } from '../components/framework'
 import { Executives } from '../components/executives'
 import { Sponsorship } from '../components/Sponsorship'
+import { About } from '../components/About'
 
 export const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ export const LandingPage = () => {
         <Framework/>
         <Executives/>
         <Sponsorship/>
+        <About/>
     </div>
   )
 }
