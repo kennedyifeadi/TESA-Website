@@ -24,7 +24,7 @@ export const NavItem = ({ NavUrl, title, ids }) => {
             onClick={handleClick}
           >
             <span
-              className="text-[30px] font-medium"
+              className="text-[24px] font-medium"
               style={{ fontFamily: '"Aldrich", sans-serif' }}
             >
               {title}
