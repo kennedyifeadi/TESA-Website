@@ -20,7 +20,7 @@ in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident,sunt in culpa qui officia deserunt mollit anim id est laborum
 .
         </p>
-        <Button title={"Support TESA"} color={'#007AFF'} icon={supportTesa} hoverColor={"#007AFF"} hoverIcon={supportTesa}/>
+        <Button title={"Support TESA"} width={"20px"} color={'#007AFF'} icon={supportTesa} hoverColor={"#007AFF"} hoverIcon={supportTesa}/>
       </div>
     </div>
   )
