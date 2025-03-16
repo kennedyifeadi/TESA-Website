@@ -31,7 +31,7 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="w-max h-max">
-          <Button color={"#392B1A"} title={"Support TESA"} icon={supportTesa} hoverColor={"#007AFF"}hoverIcon={supportHover} />
+          <Button color={"#392B1A"} width={"20px"} title={"Support TESA"} icon={supportTesa} hoverColor={"#007AFF"}hoverIcon={supportHover} />
         </div>
       </div>
       <div className="flex h-full w-[60%] items-end z-10 relative">
