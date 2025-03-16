@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Button = ({ title, icon, hoverIcon, color, hoverColor }) => {
+export const Button = ({ title, icon, hoverIcon, color, hoverColor, width }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export const Button = ({ title, icon, hoverIcon, color, hoverColor }) => {
       <span className="text-[12px]" style={{ fontFamily: '"Poppins", sans-serif' }}>
         {title}
       </span>
-      <img src={isHovered ? hoverIcon : icon} alt="" className="w-5" />
+      <img src={isHovered ? hoverIcon : icon} alt=""  style={{ width: width }} />
     </div>
   );
 };
