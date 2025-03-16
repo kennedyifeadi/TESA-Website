@@ -4,6 +4,7 @@ import { Framework } from '../components/framework'
 import { Executives } from '../components/executives'
 import { Sponsorship } from '../components/Sponsorship'
 import { About } from '../components/About'
+import { TesaPress } from '../components/TesaPress'
 
 export const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ export const LandingPage = () => {
         <Executives/>
         <Sponsorship/>
         <About/>
+        <TesaPress/>
     </div>
   )
 }
