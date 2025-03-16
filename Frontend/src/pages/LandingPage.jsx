@@ -2,6 +2,7 @@ import React from 'react'
 import { HeroSection } from '../components/HeroSection'
 import { Framework } from '../components/framework'
 import { Executives } from '../components/executives'
+import { Sponsorship } from '../components/Sponsorship'
 
 export const LandingPage = () => {
   return (
@@ -9,6 +10,7 @@ export const LandingPage = () => {
         <HeroSection/>
         <Framework/>
         <Executives/>
+        <Sponsorship/>
     </div>
   )
 }

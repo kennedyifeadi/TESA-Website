@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const SponsoredCard = () => {
+export const SponsoredCard = ({image}) => {
   return (
-    <div>SponsoredCard</div>
+    <div className="w-full h-full flex justify-center items-center bg-white rounded-md shadow-md">
+      <img src={image} alt="Sponsored" draggable={false} className="w-full h-full object-cover rounded-md" />
+    </div>
   )
 }
