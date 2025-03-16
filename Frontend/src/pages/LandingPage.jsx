@@ -5,6 +5,7 @@ import { Executives } from '../components/executives'
 import { Sponsorship } from '../components/Sponsorship'
 import { About } from '../components/About'
 import { TesaPress } from '../components/TesaPress'
+import { Newsletter } from '../components/Newsletter'
 
 export const LandingPage = () => {
   return (
@@ -15,6 +16,7 @@ export const LandingPage = () => {
         <Sponsorship/>
         <About/>
         <TesaPress/>
+        <Newsletter/>
     </div>
   )
 }
