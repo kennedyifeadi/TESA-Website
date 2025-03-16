@@ -10,7 +10,7 @@ export const Newsletter = () => {
         <div className='absolute w-full bottom-0 flex h-[70%] justify-center'>
           <div className='flex h-[10%] w-full top-0 absolute '>
             <img src={cloud} alt="" className='absolute top-3 left-10  w-[20%] h-full' />
-            <img src={cloud} alt="" className='absolute top-0 left-40 w-[20%] h-full'/>
+            <img src={cloud} alt="" className='absolute top-[-15px] left-40 w-[20%] h-full'/>
             <img src={cloud} alt="" className='absolute top-3 right-10 w-[20%] h-full' />
           </div>
           <div className='h-[100%] w-full flex justify-center items-center'>
