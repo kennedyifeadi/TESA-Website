@@ -1,8 +1,8 @@
 export const NavItems = [
     {
         id: 1,
-        NavUrl: "/scholarships",
-        Title: "Scholarships"
+        NavUrl: "/sponsorship",
+        Title: "Sponsorships"
     },
     {
         id: 2,
