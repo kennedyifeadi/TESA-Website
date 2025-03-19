@@ -12,15 +12,15 @@ export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex h-[100dvh] w-full relative px-8 items-end justify-center">
+    <div className="flex h-screen w-full relative px-8 items-end justify-center">
       <DynamicBackground imageUrl={Background} />
       <div className="w-full h-[90%] flex  border-l-[1px] border-[#07101B] border-r-[1px] z-10 px-6">
       <div className="flex flex-col h-full w-[40%] justify-center">
         <div>
           <h1 className="text-9xl tracking-[40px] leading-20 text-[#1E1E1E]" style={{ fontFamily: '"Aldrich", sans-serif' }} >TESA</h1>
         </div>
-        <div className="mb-8">
-          <h3 className="text-xl text-[#392B1A] " style={{ fontFamily: '"Aldrich", sans-serif' }}>TECHNOLOGY AND ENGINEERING STUDENTS’ ASSOCIATION</h3>
+        <div className="mb-8 w-[150%]">
+          <h3 className="text-xl text-[#392B1A] flex flex-col " style={{ fontFamily: '"Aldrich", sans-serif' }}>TECHNOLOGY AND ENGINEERING STUDENTS’ <span>ASSOCIATION</span></h3>
         </div>
         <div className="mb-4">
           <p className="text-[#392B1A] tracking-[1px] text-[15px]" style={{fontFamily:'"Poppins", sans-serif'}}>
