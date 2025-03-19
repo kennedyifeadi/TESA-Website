@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import mailbox from '../assets/images/mailbox.png'
-import cloud from '../assets/images/Union.png'
+import React, { useState } from 'react';
+import mailbox from '../assets/images/mailbox.png';
+import cloud from '../assets/images/Union.png';
 import toast, { Toaster } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
 
 export const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,8 @@ export const Newsletter = () => {
   };
 
   const handleSubscribe = (e) => {
-    e.preventDefault()
+    e.preventDefault(); 
+
     if (!email) {
       toast.error("Email field cannot be empty!");
       return;
@@ -22,14 +24,30 @@ export const Newsletter = () => {
       return;
     }
 
-    // Simulate successful subscription
-    toast.success("Thank you for subscribing!");
+    const serviceID = "service_81oxrsy"; 
+    const templateID = "template_w445bie"; 
+    const publicKey = "lQr-c2qYEnakJ6sgF";
 
-    // TODO: Send email to backend and add it to Google Sheets
+    const templateParams = {
+      email: email,
+    };
+
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then(() => {
+        toast.success("Thank you for subscribing! Check your inbox.");
+        setEmail("");
+      })
+      .catch((error) => {
+        console.error("Email sending error:", error);
+        toast.error("Oops! Something went wrong.");
+      });
   };
+
   return (
     <div className='w-full h-[100dvh] flex px-8 bg-[#392B1A] justify-center items-center'>
-       <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
+
       <div className='w-[30%] h-full flex justify-center items-center px-6 relative'>
         <div className='w-full h-[50%] rounded-md' style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}></div>
         <div className='absolute w-full bottom-0 flex h-[70%] justify-center'>
@@ -43,14 +61,29 @@ export const Newsletter = () => {
           </div>
         </div>
       </div>
+
       <div className='w-[70%] flex gap-4 flex-col h-full justify-center p-4 px-10'>
         <h1 className='w-[50%] text-white text-5xl font-semibold'>Subscribe to our Newsletter!</h1>
         <p className='text-[#908F8F] text-[18px]'>Be the first to get exclusive offers and the latest news</p>
-        <form action="" className='w-full mt-4 h-max flex flex-col gap-4' onSubmit={handleSubscribe}>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} className='w-[50%] outline-none px-4 border-[#908F8F] border rounded-lg text-[#908F8F] h-[50px]' placeholder='Enter your email address' />
-          <button className='w-full h-[50px] cursor-pointer rounded-sm font-medium text-white' style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}>Subscribe</button>
+
+        <form className='w-full mt-4 h-max flex flex-col gap-4' onSubmit={handleSubscribe}>
+          <input 
+            type="email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className='w-[50%] outline-none px-4 border-[#908F8F] border rounded-lg text-[#908F8F] h-[50px]' 
+            placeholder='Enter your email address' 
+          />
+
+          <button 
+            type="submit"
+            className='w-full h-[50px] cursor-pointer rounded-sm font-medium text-white' 
+            style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}
+          >
+            Subscribe
+          </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
