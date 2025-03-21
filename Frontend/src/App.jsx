@@ -1,17 +1,14 @@
 import { BrowserRouter } from "react-router-dom"
-import { NavBar } from "./components/Nav"
-import { AnimatedRoutes } from "./routes/AnimatedRoute"
 import { NavContextProvider } from "./context/NavContext"
+import { DisplayedComponent } from "./components/DisplayedComponent"
 
 function App() {
-
   return (
     <BrowserRouter>
     <NavContextProvider>
-    <div className="flex w-full h-max flex-col relative overflow-x-hidden">
-        <NavBar/>
-        <AnimatedRoutes/>
-    </div>
+      <div className=" h-max overflow-x-hidden">
+        <DisplayedComponent/>
+      </div>   
     </NavContextProvider>
     </BrowserRouter>
   )
