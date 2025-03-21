@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
     <NavContextProvider>
-    <div className="flex w-full h-max flex-col relative">
+    <div className="flex w-full h-max flex-col relative overflow-x-hidden">
         <NavBar/>
         <AnimatedRoutes/>
     </div>
