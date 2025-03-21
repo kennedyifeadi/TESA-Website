@@ -9,7 +9,7 @@ export const ImageGrid = ({ images }) => {
         initial = {{opacity: 0, scale: 0.5}}
         whileInView={{opacity: 1, scale: 1}}
         transition={{duration: 0.8, delay: index / 10}}
-        // viewport={{once: true}}
+        viewport={{once: true}}
           key={index}
           className={`rounded-lg overflow-hidden ${
             index === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
