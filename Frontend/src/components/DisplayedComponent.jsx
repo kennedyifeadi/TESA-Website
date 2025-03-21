@@ -3,6 +3,8 @@ import { PageLoading } from './PageLoading';
 import { NavBar } from './Nav';
 import { AnimatedRoutes } from '../routes/AnimatedRoute';
 import { NavContext } from '../context/NavContext';
+import { Footer } from '../components/Footer'
+
 
 export const DisplayedComponent = () => {
   const { isLoading } = useContext(NavContext);
