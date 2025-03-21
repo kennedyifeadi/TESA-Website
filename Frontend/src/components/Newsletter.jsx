@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import mailbox from '../assets/images/mailbox.png';
 import cloud from '../assets/images/Union.png';
 import toast, { Toaster } from 'react-hot-toast';
@@ -6,12 +6,13 @@ import emailjs from '@emailjs/browser';
 
 export const Newsletter = () => {
   const [email, setEmail] = useState("");
+  const formRef = useRef(null)
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault(); 
 
     if (!email) {
@@ -24,24 +25,34 @@ export const Newsletter = () => {
       return;
     }
 
-    const serviceID = "service_81oxrsy"; 
-    const templateID = "template_w445bie"; 
-    const publicKey = "lQr-c2qYEnakJ6sgF";
+    const serviceID = import.meta.env.VITE_REACT_SEVICE_ID;
+    const templateID = import.meta.env.VITE_REACT_TEMPLATE_ID; 
+    const publicKey = import.meta.env.VITE_REACT_PUBLIC_KEY;
+    // const googleSheetURL = import.meta.env.VITE_GOOGLE_SHEET_URL; // Google Apps Script URL
 
-    const templateParams = {
-      email: email,
-    };
+    const templateParams = { email };
 
-    emailjs
-      .send(serviceID, templateID, templateParams, publicKey)
-      .then(() => {
-        toast.success("Thank you for subscribing! Check your inbox.");
-        setEmail("");
-      })
-      .catch((error) => {
-        console.error("Email sending error:", error);
-        toast.error("Oops! Something went wrong.");
+    try {
+      // Send email via EmailJS
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log(email);
+
+      // Send email to Google Sheets
+      const googleSheetURL = "https://script.google.com/macros/s/AKfycbyc_SI2DHbpPHhmpKYOwautJYvxO29zTse-jVrMWJU2jV5nhFhlKwSpP85lZF8u1eA0/exec"
+      const response = await fetch(googleSheetURL, {
+        method: "POST",
+        body: new FormData(formRef.current),  // Send as JSON
+      }).then(res => res.json()).then(data =>{
+        console.log(data);
+        alert(data.msg)
       });
+
+        toast.success("Thank you for subscribing! Check your inbox.");
+        setEmail(""); 
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
@@ -66,10 +77,11 @@ export const Newsletter = () => {
         <h1 className='w-[50%] text-white text-5xl font-semibold'>Subscribe to our Newsletter!</h1>
         <p className='text-[#908F8F] text-[18px]'>Be the first to get exclusive offers and the latest news</p>
 
-        <form className='w-full mt-4 h-max flex flex-col gap-4' onSubmit={handleSubscribe}>
+        <form className='w-full mt-4 h-max flex flex-col gap-4' onSubmit={handleSubscribe} ref={formRef}>
           <input 
-            type="email" 
+            type="text" 
             value={email}
+            name='Email'
             onChange={(e) => setEmail(e.target.value)}
             className='w-[50%] outline-none px-4 border-[#908F8F] border rounded-lg text-[#908F8F] h-[50px]' 
             placeholder='Enter your email address' 
@@ -77,7 +89,7 @@ export const Newsletter = () => {
 
           <button 
             type="submit"
-            className='w-full h-[50px] cursor-pointer rounded-sm font-medium text-white' 
+            className='w-full active:scale-75 duration-500 transition-all h-[50px] cursor-pointer rounded-sm font-medium text-white' 
             style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}
           >
             Subscribe
