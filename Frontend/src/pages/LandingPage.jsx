@@ -22,7 +22,6 @@ export const LandingPage = () => {
         <Newsletter/>
         <Location/>
         <Socials/>
-        <Footer/>
     </div>
   )
 }

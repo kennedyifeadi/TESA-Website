@@ -20,7 +20,7 @@ export const DisplayedComponent = () => {
       <div className={`${isLoading ? 'hidden' : 'flex'} h-max flex-col relative overflow-x-hidden`}>
         <NavBar />
         {showHero && <AnimatedRoutes />}
-        
+        <Footer/>
       </div>
     </div>
   );
