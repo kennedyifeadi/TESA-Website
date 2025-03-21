@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import { LandingPage } from "../pages/LandingPage";
-import { Scholarships } from "../pages/Scholarships";
+import { Sponsorships } from "../pages/Sponsorships";
 import { Resources } from "../pages/Resources";
 import { Payments } from "../pages/Payments";
 import { Contact } from "../pages/Contact";
@@ -15,7 +15,7 @@ export const AnimatedRoutes = () => {
           <AnimatePresence>
               <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<LandingPage/>} exact />
-                  <Route path="/sponsorship" element={<Scholarships/>} />
+                  <Route path="/sponsorship" element={<Sponsorships/>} />
                   <Route path="/updates" element={<Updates/>} />
                   <Route path="/resources" element={<Resources/>} />
                   <Route path="/payments" element={<Payments/>} />
