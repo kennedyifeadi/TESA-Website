@@ -25,7 +25,7 @@ export const NavBar = () => {
         {
           NavItems.map((nav, index)=>{
             return (
-              <div key={index} className='w-[20%] h-full'>
+              <div key={index} className='w-[20%] h-full text-none'>
                 <NavItem NavUrl={nav.NavUrl} title={nav.Title} ids={nav.id}/>
               </div>
             )

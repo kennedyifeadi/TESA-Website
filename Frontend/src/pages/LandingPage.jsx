@@ -7,7 +7,6 @@ import { TesaPress } from '../components/TesaPress'
 import { Newsletter } from '../components/Newsletter'
 import { Location } from '../components/Location'
 import { Socials } from '../components/Socials'
-import { Footer } from '../components/Footer'
 import { Executives } from '../components/Executives'
 
 export const LandingPage = () => {
@@ -22,7 +21,6 @@ export const LandingPage = () => {
         <Newsletter/>
         <Location/>
         <Socials/>
-        <Footer/>
     </div>
   )
 }
