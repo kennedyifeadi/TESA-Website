@@ -6,14 +6,14 @@ import emailjs from '@emailjs/browser';
 
 export const Newsletter = () => {
   const [email, setEmail] = useState("");
-  const formRef = useRef(null)
+  const formRef = useRef(null);
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   const handleSubscribe = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!email) {
       toast.error("Email field cannot be empty!");
@@ -26,9 +26,9 @@ export const Newsletter = () => {
     }
 
     const serviceID = import.meta.env.VITE_REACT_SEVICE_ID;
-    const templateID = import.meta.env.VITE_REACT_TEMPLATE_ID; 
+    const templateID = import.meta.env.VITE_REACT_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_REACT_PUBLIC_KEY;
-    // const googleSheetURL = import.meta.env.VITE_GOOGLE_SHEET_URL; // Google Apps Script URL
+    const googleSheetURL = "https://script.google.com/macros/s/AKfycbzlMEc-OjcnRwCjV8EjSxJJWK8se_yzdgPYdOCzZzNi39J81KSqJfbpaAZPtdWFPuR2/exec";
 
     const templateParams = { email };
 
@@ -38,17 +38,20 @@ export const Newsletter = () => {
       console.log(email);
 
       // Send email to Google Sheets
-      const googleSheetURL = "https://script.google.com/macros/s/AKfycbyc_SI2DHbpPHhmpKYOwautJYvxO29zTse-jVrMWJU2jV5nhFhlKwSpP85lZF8u1eA0/exec"
-      const response = await fetch(googleSheetURL, {
-        method: "POST",
-        body: new FormData(formRef.current),  // Send as JSON
-      }).then(res => res.json()).then(data =>{
-        console.log(data);
-        alert(data.msg)
-      });
+      const formData = new FormData();
+      formData.append("Email", email);
 
-        toast.success("Thank you for subscribing! Check your inbox.");
-        setEmail(""); 
+      await fetch(googleSheetURL, {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Thank you for subscribing! Check your inbox.");
+        });
+
+      setEmail("");
     } catch (error) {
       console.error("Error:", error);
       toast.error("Something went wrong!");
