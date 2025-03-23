@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom"
 import { NavContextProvider } from "./context/NavContext"
 import { DisplayedComponent } from "./components/DisplayedComponent"
 
+
 function App() {
   return (
     <BrowserRouter>
