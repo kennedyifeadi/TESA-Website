@@ -47,7 +47,7 @@ export const BecomeASponsor = () => {
           <textarea name="Message" id="" className=' rounded-md  border-2 pl-4 pt-2 w-full h-full border-[#392B1A] outline-none bg-[#FFFFFF]' placeholder='message'></textarea>
         </div>
         <div>
-          <button className='cursor-pointer bg-[#007AFF] flex justify-center items-center text-white w-[10rem] h-10 gap-2 font-medium rounded-md duration-500'>Submit</button>
+          <button className='cursor-pointer active:scale-75 transition-all bg-[#007AFF] flex justify-center items-center text-white w-[10rem] h-10 gap-2 font-medium rounded-md duration-500'>Submit</button>
         </div>
       </form>
     </div>
