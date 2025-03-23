@@ -1,6 +1,8 @@
 import React, { useRef }  from 'react'
 import background from "../assets/images/becomeaSponsorBG.jpg"
 import { DynamicBackground } from './DynamicBackground'
+import toast, { Toaster } from 'react-hot-toast';
+
 export const BecomeASponsor = () => {
   const formRef = useRef(null);
 
@@ -12,21 +14,24 @@ export const BecomeASponsor = () => {
     }).then(res => {
       if (!res.ok) {
         throw new Error('Network response was not ok');
+        toast.error("Network response was not ok");
       }
       return res.json();
     })
       .then(data => {
         console.log(data);
-        alert(data.msg);
+        toast.success(data.msg)
       })
       .catch(err => {
         console.error('There was a problem with the fetch operation:', err);
         alert('Submission failed. Please try again.');
+        toast.error('Submission failed. Please try again.')
       });
   };
 
   return (
     <div className='w-full h-screen relative' style={{ fontFamily: '"Poppins", sans-serif' }}>
+      <Toaster position="top-center" reverseOrder={false} />
       <DynamicBackground imageUrl={background}/>
       <form onSubmit={handleSubmit}  ref={formRef} className='flex justify-center gap-8 absolute top-0 flex-col bg-[#222121c9] items-center w-full h-full p-14'>
         <h1 className='font-bold text-3xl'>Become a Sponsor</h1>
