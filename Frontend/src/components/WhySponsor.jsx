@@ -3,7 +3,7 @@ import React from 'react'
 export const WhySponsor = () => {
   return (
     <div className='w-full px-8 flex flex-col h-[50dvh]'>
-        <div className='w-full justify-center items-center h-full flex pt-12 gap-4 flex-col border-r-[1px] border-l-[1px]'>
+        <div className='w-full justify-center items-center h-full flex pt-12 gap-4 flex-col'>
         <div className='w-full p-[1px] h-[18%]' style={{background: 'linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)'}}>
             <h1 className='w-full text-center text-3xl h-full flex justify-center items-center bg-white'>
                  Why Sponsor us?
