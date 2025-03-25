@@ -39,10 +39,10 @@ function ServerDay(props) {
         sx={{
           ...(eventColor && { backgroundColor: eventColor, color: 'white' }), // Event-based color
           ...(isToday && { backgroundColor: '#007BFF', color: 'white' }), // Highlight today in blue
-          marginLeft: "10px",  // Adjust spacing between dates
+          marginLeft: "20px",  // Adjust spacing between dates
           minWidth: "40px",
           minHeight: "40px",
-          borderRadius: "8px", // Rounded corners
+          borderRadius: "50%", // Rounded corners
         }}
       />
     </Badge>
@@ -61,11 +61,11 @@ export default function CustomDateCalendar() {
         sx={{
             "& .MuiDayCalendar-weekDayLabel": {
                 color: "black",
-                marginLeft: "10px",
+                marginLeft: "20px",
                 minWidth: "40px",
                 minHeight: "40px",
                 },
-             height: 'max-content', maxHeight:'500px', width:'400px', border:'1px solid red' }}
+             height: 'max-content', maxHeight:'500px', width:'500px', border:'1px solid red' }}
       />
     </LocalizationProvider>
   );

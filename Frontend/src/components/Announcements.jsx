@@ -8,7 +8,7 @@ import search from '../assets/icons/search1.png'
 
 export const Announcements = () => {
   return (
-    <div className='w-full h-screen flex flex-col px-8 relative'>
+    <div className='w-full h-screen flex flex-col px-8 relative pb-14'>
       <DynamicBackground imageUrl={Background}/>
       <div className='w-full h-full flex flex-col  z-10'>
         <div className='w-full h-[20%] px-14 flex justify-center items-center relative'>
