@@ -21,7 +21,7 @@ export const Announcements = () => {
               </span>
               <span className='relative flex justify-end items-center bg-white h-[30%] w-full rounded-md'>
                 <img src={search} alt="" className='absolute right-2 w-[15px] h-[15px]' />
-                <input type="text" name="search" className='bg-transparent w-full h-full outline-none rounded-md px-4'  />
+                <input type="text" placeholder='search..' name="search" className='bg-transparent font-medium w-full h-full outline-none rounded-md px-4'  />
               </span>
             </div>
           </div>
