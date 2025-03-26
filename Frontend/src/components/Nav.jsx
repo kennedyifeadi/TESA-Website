@@ -21,11 +21,11 @@ export const NavBar = () => {
           <img src={notification} alt="" />
         </div>
       </div>
-      <div className='flex w-[80%] h-full items-center border-b-[#07101B] border-b'>
+      <div className='bg-gradient-to-r from-[#007AFF] to-[#FA8F21] md:bg-none flex  md:flex-row flex-col h-screen justify-center right-0 w-[50%] md:w-[80%] md:h-full items-start md:items-center border-b-[#07101B] border-b md:relative absolute'>
         {
           NavItems.map((nav, index)=>{
             return (
-              <div key={index} className='w-[20%] h-full text-none'>
+              <div key={index} className='w-full md:w-[20%] h-[10%] md:h-full text-none'>
                 <NavItem NavUrl={nav.NavUrl} title={nav.Title} ids={nav.id}/>
               </div>
             )
