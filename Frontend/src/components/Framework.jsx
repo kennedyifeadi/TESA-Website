@@ -32,12 +32,12 @@ export const Framework = () => {
       ></div>
 
       <div className="w-full h-max flex justify-center">
-        <h1 className="bg-gradient-to-r from-[#007AFF] to-[#FA8F21] bg-clip-text text-transparent text-2xl md:text-5xl">
+        <h1 className="bg-gradient-to-r from-[#007AFF] to-[#FA8F21] bg-clip-text text-transparent text-3xl md:text-5xl">
           THE TESA Framework
         </h1>
       </div>
 
-      <div className="h-max mt-4 border w-[80%] md:w-[40%] gap-y-4 flex flex-wrap justify-between z-10">
+      <div className="h-max mt-4 w-[80%] md:w-[40%] gap-y-4 flex flex-wrap justify-between z-10">
         {FrameworkObject.map((item, index) => (
           <motion.div
             initial = {{opacity: 0, scale: 0}}
