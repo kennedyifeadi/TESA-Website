@@ -67,15 +67,15 @@ export const BecomeASponsor = () => {
     <div className="w-full h-screen relative" style={{ fontFamily: '"Poppins", sans-serif' }}>
       <Toaster position="top-center" reverseOrder={false} />
       <DynamicBackground imageUrl={background} />
-      <form onSubmit={handleSubmit} ref={formRef} className="flex justify-center gap-8 absolute top-0 flex-col bg-[#222121c9] items-center w-full h-full p-14">
-        <h1 className="font-bold text-3xl">Become a Sponsor</h1>
-        <div className="w-full gap-8 h-[50px] flex justify-center">
-          <input type="text" name="Name" value={formData.Name} onChange={handleChange} className="rounded-md border-2 pl-4 flex-1 h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Name" />
-          <input type="text" name="Company" value={formData.Company} onChange={handleChange} className="rounded-md border-2 pl-4 flex-1 h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Company Name" />
+      <form onSubmit={handleSubmit} ref={formRef} className="flex pt-10 md:pt-0 md:justify-center gap-4 md:gap-8 absolute top-0 flex-col bg-[#222121c9] items-center w-full h-full px-4 md:p-14">
+        <h1 className="font-bold text-2xl md:text-3xl">Become a Sponsor</h1>
+        <div className="w-full gap-2 md:gap-8 h-[100px] md:h-[50px] flex flex-col md:flex-row justify-center">
+          <input type="text" name="Name" value={formData.Name} onChange={handleChange} className="rounded-md border-2 pl-4 md:flex-1 h-[50%] md:h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Name" />
+          <input type="text" name="Company" value={formData.Company} onChange={handleChange} className="rounded-md border-2 pl-4 md:flex-1 h-[50%] md:h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Company Name" />
         </div>
-        <div className="w-full gap-8 h-[50px] flex justify-center">
-          <input type="text" name="Mobile" value={formData.Mobile} onChange={handleChange} className="rounded-md border-2 pl-4 flex-1 h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Mobile" />
-          <input type="text" name="Email" value={formData.Email} onChange={handleChange} className="rounded-md border-2 pl-4 flex-1 h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Email" />
+        <div className="w-full gap-2 md:gap-8 h-[100px] md:h-[50px] flex flex-col md:flex-row  justify-center">
+          <input type="text" name="Mobile" value={formData.Mobile} onChange={handleChange} className="rounded-md border-2 pl-4 md:flex-1 h-[50%] md:h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Mobile" />
+          <input type="text" name="Email" value={formData.Email} onChange={handleChange} className="rounded-md border-2 pl-4 md:flex-1 h-[50%] md:h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Email" />
         </div>
         <div className="w-full h-[200px] flex justify-center">
           <textarea name="Message" value={formData.Message} onChange={handleChange} className="rounded-md border-2 pl-4 pt-2 w-full h-full border-[#392B1A] outline-none bg-[#FFFFFF]" placeholder="Message"></textarea>
