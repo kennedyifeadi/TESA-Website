@@ -30,9 +30,9 @@ export const NavBar = () => {
             <img src={TesaLogo} alt="" className='w-full h-full object-contain cursor-pointer' />
           </NavLink>
         </div>
-        <div className='w-full md:w-[40%] h-[50%] md:h-full flex items-center justify-between'>
+        <div className='w-full md:w-[40%] h-[50%] md:h-full flex items-center justify-between relative'>
           <HiOutlineMenuAlt1 className='flex md:hidden text-5xl cursor-pointer' onClick={handleDialogClick}/>
-          <img src={notification} alt=""  />
+          <img src={notification} alt=""  className='absolute right-[-40px]' />
         </div>
       </div>
       <div className={`bg-gradient-to-r from-[#007AFF] to-[#FA8F21] md:bg-none flex md:flex-row flex-col h-screen justify-center ${dialogClicked ? "right-0" : "right-[-500px]"} w-[50%] ${searchClicked ? "md:w-[70%]": "md:w-[80%]"} duration-500 transition-all ease-in-out md:h-full items-start md:items-center border-b-[#07101B] border-b md:right-0 md:relative absolute`}>
