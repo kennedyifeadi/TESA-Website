@@ -1,17 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ExecutivesCard } from './UI/ExecutivesCard'
 import { ExecutivesObject } from './ExecutivesObject'
 import { motion } from 'framer-motion'
+import axios from 'axios'
+import { data } from 'react-router-dom'
 
 export const Executives = () => {
+  const [exclusives, setExecutives] = useState([])
+  const getExecutives = async () => {
+    try {
+      const response = await axios.get("https://tesa-website.onrender.com/users/getExco");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching executives:", error);
+      return null; 
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getExecutives();
+      if (data) {
+        setExecutives(data.data.executives); 
+      }
+      console.log(data.data.executives); 
+    };
+
+    fetchData();
+  }, []);
   return (
-    <div className='flex flex-col gap-2 py-10 w-full h-max bg-[#07101B] px-8 relative'>
+    <div className='flex flex-col gap-2 py-10 w-full h-max bg-[#07101B] px-2 md:px-8 relative'>
       <div className='w-full mb-10 h-max flex justify-center itmes-center'>
         <h1 className='text-white font-semibold w-full text-center text-3xl md:text-5xl h-full justify-center items-center' style={{ fontFamily: '"Aldrich", sans-serif' }} >Meet the Executives</h1>
       </div>
-      <div className='flex flex-wrap w-full px-6 h-max gap-4 justify-center '>
+      <div className='flex flex-wrap justify-center w-full md:px-6 h-max gap-4'>
         {
-          ExecutivesObject.map((card, index)=>{
+          exclusives.map((card, index)=>{
             return(
               <motion.div
                 initial = {{opacity: 0, y: 20}}
@@ -20,7 +44,7 @@ export const Executives = () => {
                 viewport={{once: true}}
                 className='flex w-max h-max'
                 key={index}>
-                <ExecutivesCard Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.Level} Name={card.Name} Position={card.Position} Twitter={card.Twitter} />
+                <ExecutivesCard Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.level} Name={card.name} Position={card.position} Twitter={card.Twitter} />
               </motion.div>
             )
           })
