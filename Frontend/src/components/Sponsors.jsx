@@ -10,7 +10,7 @@ import { Autoplay, Pagination} from 'swiper/modules';
 
 export const Sponsors = () => {
   return (
-    <div className="relative p-14 flex justify-center items-center w-full h-screen">
+    <div className="relative p-2 md:p-14 flex justify-center items-center w-full h-screen">
       <DynamicBackground imageUrl={handshake} />
       <div className="w-full h-full text-white">
       <Swiper
@@ -33,7 +33,7 @@ export const Sponsors = () => {
                 <img src={card.image} alt="" className="w-[100px] h-[100px] border-2 object-cover border-white rounded-full" />
               </div>
               <div className="w-full h-max">
-                <h1 className="w-full text-center font-bold text-white text-3xl">
+                <h1 className="w-full text-center font-bold text-white text-2xl md:text-3xl">
                   {card.Name}
                 </h1>
               </div>
@@ -44,8 +44,8 @@ export const Sponsors = () => {
                   }
                 </span>
               </div>
-              <div className="w-full h-max mt-8">
-                <p className="w-full text-center text-[18px] tracking-wide leading-10 text-white">
+              <div className="w-full h-max mt-2 md:mt-8">
+                <p className="w-full text-center text-[15px] md:text-[18px] md:tracking-wide md:leading-10 text-white">
                   {card.Content}
                 </p>
               </div>
