@@ -59,11 +59,11 @@ export const Newsletter = () => {
   };
 
   return (
-    <div className='w-full h-[100dvh] flex px-8 bg-[#392B1A] justify-center items-center'>
+    <div className='w-full h-[120dvh] md:h-[100dvh] flex flex-col md:flex-row px-2 md:px-8 bg-[#392B1A] justify-center items-center'>
       <Toaster position="top-center" reverseOrder={false} />
 
-      <div className='w-[30%] h-full flex justify-center items-center px-6 relative'>
-        <div className='w-full h-[50%] rounded-md' style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}></div>
+      <div className='w-full md:w-[30%] h-[50%] md:h-full flex justify-center items-center md:px-6 relative'>
+        <div className='w-[90%] h-[80%] md:h-[50%] rounded-md' style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}></div>
         <div className='absolute w-full bottom-0 flex h-[70%] justify-center'>
           <div className='flex h-[10%] w-full top-0 absolute '>
             <img src={cloud} alt="" className='absolute top-3 left-10  w-[20%] h-full' />
@@ -76,8 +76,8 @@ export const Newsletter = () => {
         </div>
       </div>
 
-      <div className='w-[70%] flex gap-4 flex-col h-full justify-center p-4 px-10'>
-        <h1 className='w-[50%] text-white text-5xl font-semibold'>Subscribe to our Newsletter!</h1>
+      <div className='w-full md:w-[70%] flex gap-4 flex-col h-[50%] md:h-full justify-center p-4 md:px-10'>
+        <h1 className='w-[50%] text-white text-2xl md:text-5xl font-semibold'>Subscribe to our Newsletter!</h1>
         <p className='text-[#908F8F] text-[18px]'>Be the first to get exclusive offers and the latest news</p>
 
         <form className='w-full mt-4 h-max flex flex-col gap-4' onSubmit={handleSubscribe} ref={formRef}>
@@ -86,7 +86,7 @@ export const Newsletter = () => {
             value={email}
             name='Email'
             onChange={(e) => setEmail(e.target.value)}
-            className='w-[50%] outline-none px-4 border-[#908F8F] border rounded-lg text-[#908F8F] h-[50px]' 
+            className='w-[100%] outline-none px-4 border-[#908F8F] border rounded-lg text-[#908F8F] h-[50px]' 
             placeholder='Enter your email address' 
           />
 
