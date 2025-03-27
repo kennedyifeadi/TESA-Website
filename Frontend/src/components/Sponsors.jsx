@@ -12,7 +12,7 @@ export const Sponsors = () => {
   return (
     <div className="relative p-14 flex justify-center items-center w-full h-screen">
       <DynamicBackground imageUrl={handshake} />
-      <div className="w-full h-full tect-white">
+      <div className="w-full h-full text-white">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
