@@ -18,8 +18,9 @@ export const Executives = () => {
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: .5, delay: card.id / 5}}
                 viewport={{once: true}}
-                className='flex w-max h-max'>
-                <ExecutivesCard key={index} Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.Level} Name={card.Name} Position={card.Position} Twitter={card.Twitter} />
+                className='flex w-max h-max'
+                key={index}>
+                <ExecutivesCard Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.Level} Name={card.Name} Position={card.Position} Twitter={card.Twitter} />
               </motion.div>
             )
           })

@@ -23,14 +23,14 @@ export const NavBar = () => {
     console.log(searchClicked);
   })
   return (
-    <div className='w-full h-[10dvh] flex px-4 absolute top-0 right-0 z-20'>
+    <div className='w-full h-[20dvh] md:h-[10dvh] flex px-4 absolute top-0 right-0 z-20'>
       <div className='flex h-full flex-col md:flex-row w-full md:w-[10%] items-center'>
-        <div className='w-full justify-center md:w-[60%] h-full flex items-center cursor-pointer'>
+        <div className='w-full justify-center md:w-[60%] h-[50%] md:h-full flex items-center cursor-pointer'>
           <NavLink to="/">
-            <img src={TesaLogo} alt="" className='w-full h-full cursor-pointer' />
+            <img src={TesaLogo} alt="" className='w-full h-full object-contain cursor-pointer' />
           </NavLink>
         </div>
-        <div className='w-full md:w-[40%] h-full flex items-center justify-between'>
+        <div className='w-full md:w-[40%] h-[50%] md:h-full flex items-center justify-between'>
           <HiOutlineMenuAlt1 className='flex md:hidden text-5xl cursor-pointer' onClick={handleDialogClick}/>
           <img src={notification} alt=""  />
         </div>
