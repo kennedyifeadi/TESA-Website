@@ -21,17 +21,17 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div className="flex h-screen w-full relative px-8 items-end justify-center">
+    <div className="flex h-screen w-full relative md:px-8 items-end justify-center">
       <DynamicBackground imageUrl={Background} />
       <div className="w-full h-[80%] md:h-[90%] flex flex-col-reverse md:flex-row z-10 md:px-6">
-        <div className="flex flex-col h-[50%] md:h-full w-full md:w-[40%] justify-center">
+        <div className="flex flex-col h-[50%] md:h-full w-full md:w-[40%] justify-center px-8 md:px-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={startAnimation ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8 }}
           >
             <h1
-              className="text-5xl md:text-9xl tracking-[20px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
+              className="text-5xl md:text-9xl tracking-[40px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
               style={{ fontFamily: '"Aldrich", sans-serif' }}
             >
               TESA
@@ -56,7 +56,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={startAnimation ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="md:mb-4 mb-2"
+            className="md:mb-4 mb-4"
           >
             <p
               className="text-[#392B1A] md:tracking-[1px] text-[10px] md:text-[15px]"
@@ -73,6 +73,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={startAnimation ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
+            className="w-full flex md:justify-start justify-center"
           >
             <Button
               color={"#392B1A"}
@@ -89,17 +90,17 @@ export const HeroSection = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={startAnimation ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex h-[50%] md:h-full w-full md:w-[60%] items-center md:items-end z-10 relative"
+          className="flex h-[50%] md:h-full px-2 w-full md:w-[60%] items-center md:items-end z-10 relative"
         >
           <img
             src={technology}
             alt=""
-            className="absolute w-[70%] md:w-full bottom-10 h-[70%] md:h-[90%] left-[30px] md:left-[0px] object-cover md:object-contain"
+            className="absolute w-[70%] md:w-full bottom-10 h-[70%] md:h-[90%] left-[30px] md:left-[0px] object-contain md:object-contain"
           />
           <img
             src={engineer}
             alt=""
-            className="h-full w-full object-cover md:object-cover"
+            className="h-full w-full md:w-full object-cover md:object-cover"
             style={{ objectPosition: "-20px" }}
           />
         </motion.div>
@@ -109,7 +110,7 @@ export const HeroSection = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={startAnimation ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className={`absolute flex items-center justify-center text-white gap-2 cursor-pointer z-10 transition-all bottom-2 h-8 duration-500 ease-in-out rounded-full bg-[#007AFF] ${
+        className={`absolute hidden md:flex items-center justify-center text-white gap-2 cursor-pointer z-10 transition-all bottom-2 h-8 duration-500 ease-in-out rounded-full bg-[#007AFF] ${
           isHovered ? "w-24" : "w-16"
         }`}
         onMouseEnter={() => setIsHovered(true)}
