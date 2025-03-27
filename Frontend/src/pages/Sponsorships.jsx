@@ -11,7 +11,7 @@ export const Sponsorships = () => {
     initial = {{x:300}}
     animate = {{x:0}}
     transition={{duration: 1}}
-    className='w-full h-maax flex flex-col relative'>
+    className='w-full h-max flex flex-col relative'>
       <SponsorshipHeroSection/>
       <WhySponsor/>
       <Sponsors/>
