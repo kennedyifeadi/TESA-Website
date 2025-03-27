@@ -13,19 +13,19 @@ export const ExecutivesCard = ({Name, Position, Level, Twitter, Instagram, Email
 
   return (
     <div 
-    className={`h-[400px] cursor-pointer rounded-md w-[400px] bg-cover bg-center bg-no-repeat gap-2 flex flex-col p-2 relative z-10`}
+    className={`h-[80px] md:h-[400px] cursor-pointer rounded-md w-[80px] md:w-[400px] bg-cover bg-center bg-no-repeat md:gap-2 flex flex-col p-[2px] md:p-2 relative z-10`}
     style={{backgroundImage: `url(${executiveBackground})`}}
     onMouseEnter={()=> setIsHovered(true)}
     onMouseLeave={()=> setIsHovered(false)}
     >
       <div className="absolute inset-0 bg-white opacity-80 rounded-md"></div>
-      <div className='w-full h-[70%] flex justify-center items-center z-10'>
+      <div className='w-full h-[60%] md:h-[70%] flex justify-center items-center z-10'>
         <div className={`${isHovered ? " w-[90%] h-[90%]" : "w-[80%] h-[80%]"} duration-500 ease-in-out transition-all`}>
-          <img src={Image} alt="" className={`h-full w-full object-cover rounded-3xl `}/> 
+          <img src={Image} alt="" className={`h-full w-full object-cover rounded-sm md:rounded-3xl `} style={{objectPosition: "0px -10px"}}/> 
         </div>
       </div>
-      <div className='w-full h-[30%] gap-2 flex  z-10 flex-col'>
-        <span className='flex justify-center items-end pb-2 w-full h-[55%] text-medium text-4xl text-[#392B1A] border-b-[#392B1A] border-b capitalize' style={{fontFamily:'"Poppins", sans-serif'}}>{Name}</span>
+      <div className='w-full h-[40%] md:h-[30%] gap-[2px] md:gap-2 flex z-10 flex-col'>
+        <span className='flex justify-center items-end md:pb-2 w-full h-[55%] text-medium text-[5px] text-center md:text-2xl text-[#392B1A] border-b-[#392B1A] border-b capitalize' style={{fontFamily:'"Poppins", sans-serif'}}>{Name}</span>
         <span className='w-full h-[45%] flex flex-col justify-center items-center relative'>
           <span className={`font-medium text-white ${isHovered ? "opacity-0" : "opacity-100"} duration-1000 ease-in-out transition-all w-full h-full gap-4 flex justify-between`}>
           <ExecutivesBtn text={Position}/>
