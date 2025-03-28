@@ -1,55 +1,75 @@
-import React, { useEffect, useState } from 'react'
-import { ExecutivesCard } from './UI/ExecutivesCard'
-import { ExecutivesObject } from './ExecutivesObject'
-import { motion } from 'framer-motion'
-import axios from 'axios'
-import { data } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { ExecutivesCard } from './UI/ExecutivesCard';
+import { motion } from 'framer-motion';
+import axios from 'axios';
 
 export const Executives = () => {
-  const [exclusives, setExecutives] = useState([])
+  const [executives, setExecutives] = useState([]); 
+
   const getExecutives = async () => {
     try {
       const response = await axios.get("https://tesa-website.onrender.com/users/getExco");
-      return response.data;
+      console.log(response.data.data.executives);
+      return Array.isArray(response.data.data.executives) ? response.data.data.executives : []; 
+     
     } catch (error) {
       console.error("Error fetching executives:", error);
-      return null; 
+      return [];
     }
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getExecutives();
-      if (data) {
-        setExecutives(data.data.executives); 
+    const fetchExecutives = async () => {
+      try {
+        const storedExecutives = localStorage.getItem("executives");
+        if (storedExecutives) {
+          const parsedExecutives = JSON.parse(storedExecutives);
+          if (Array.isArray(parsedExecutives)) {
+            console.log("Using cached executives from localStorage");
+            setExecutives(parsedExecutives);
+            return;
+          }
+        }
+
+        console.log("Fetching executives from API...");
+        const data = await getExecutives();
+        setExecutives(data);
+        localStorage.setItem("executives", JSON.stringify(data));
+      } catch (error) {
+        console.error("Error processing executives:", error);
       }
-      console.log(data.data.executives); 
     };
 
-    fetchData();
+    fetchExecutives();
   }, []);
+
   return (
     <div className='flex flex-col gap-2 py-10 w-full h-max bg-[#07101B] px-2 md:px-8 relative'>
-      <div className='w-full mb-10 h-max flex justify-center itmes-center'>
-        <h1 className='text-white font-semibold w-full text-center text-3xl md:text-5xl h-full justify-center items-center' style={{ fontFamily: '"Aldrich", sans-serif' }} >Meet the Executives</h1>
+      <div className='w-full mb-10 h-max flex justify-center items-center'>
+        <h1 className='text-white font-semibold w-full text-center text-3xl md:text-5xl h-full justify-center items-center' style={{ fontFamily: '"Aldrich", sans-serif' }}>
+          Meet the Executives
+        </h1>
       </div>
       <div className='flex flex-wrap justify-center w-full md:px-6 h-max gap-4'>
         {
-          exclusives.map((card, index)=>{
-            return(
+          executives.length > 0 ? (
+            executives.map((card, index) => (
               <motion.div
-                initial = {{opacity: 0, y: 20}}
-                whileInView={{opacity: 1, y: 0}}
-                transition={{duration: .5, delay: card.id / 5}}
-                viewport={{once: true}}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index / 5 }}
+                viewport={{ once: true }}
                 className='flex w-max h-max'
-                key={index}>
+                key={index}
+              >
                 <ExecutivesCard Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.level} Name={card.name} Position={card.position} Twitter={card.Twitter} />
               </motion.div>
-            )
-          })
+            ))
+          ) : (
+            <p className="text-white text-lg">No executives found.</p>
+          )
         }
       </div>
     </div>
-  )
-}
+  );
+};

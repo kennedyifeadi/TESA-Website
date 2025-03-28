@@ -13,7 +13,7 @@ export const ExecutivesCard = ({Name, Position, Level, Twitter, Instagram, Email
 
   return (
     <div 
-    className={`h-[80px] md:h-[400px] cursor-pointer rounded-md w-[80px] md:w-[400px] bg-cover bg-center bg-no-repeat md:gap-2 flex flex-col p-[2px] md:p-2 relative z-10`}
+    className={`h-[100px] md:h-[400px] cursor-pointer rounded-md w-[100px] md:w-[400px] bg-cover bg-center bg-no-repeat md:gap-2 flex flex-col p-[2px] md:p-2 relative z-10`}
     style={{backgroundImage: `url(${executiveBackground})`}}
     onMouseEnter={()=> setIsHovered(true)}
     onMouseLeave={()=> setIsHovered(false)}
@@ -25,7 +25,7 @@ export const ExecutivesCard = ({Name, Position, Level, Twitter, Instagram, Email
         </div>
       </div>
       <div className='w-full h-[40%] md:h-[30%] gap-[2px] md:gap-2 flex z-10 flex-col'>
-        <span className='flex justify-center items-end md:pb-2 w-full h-[55%] text-medium text-[5px] text-center md:text-2xl text-[#392B1A] border-b-[#392B1A] border-b capitalize' style={{fontFamily:'"Poppins", sans-serif'}}>{Name}</span>
+        <span className='flex justify-center items-end md:pb-2 w-full h-[55%] text-medium text-[8px] text-center md:text-2xl text-[#392B1A] border-b-[#392B1A] border-b capitalize' style={{fontFamily:'"Poppins", sans-serif'}}>{Name}</span>
         <span className='w-full h-[45%] flex flex-col justify-center items-center relative'>
           <span className={`font-medium text-white ${isHovered ? "opacity-0" : "opacity-100"} duration-1000 ease-in-out transition-all w-full h-full gap-4 flex justify-between`}>
           <ExecutivesBtn text={Position}/>
