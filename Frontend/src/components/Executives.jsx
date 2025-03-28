@@ -9,7 +9,6 @@ export const Executives = () => {
   const getExecutives = async () => {
     try {
       const response = await axios.get("https://tesa-website.onrender.com/users/getExco");
-      console.log(response.data.data.executives);
       return Array.isArray(response.data.data.executives) ? response.data.data.executives : []; 
      
     } catch (error) {
@@ -25,13 +24,11 @@ export const Executives = () => {
         if (storedExecutives) {
           const parsedExecutives = JSON.parse(storedExecutives);
           if (Array.isArray(parsedExecutives)) {
-            console.log("Using cached executives from localStorage");
             setExecutives(parsedExecutives);
             return;
           }
         }
 
-        console.log("Fetching executives from API...");
         const data = await getExecutives();
         setExecutives(data);
         localStorage.setItem("executives", JSON.stringify(data));
