@@ -30,7 +30,7 @@ export const PageLoading = () => {
           };
       }, [setIsLoading]);
   return (
-    <div className={`w-full h-screen absolute z-40 flex flex-col justify-center items-center duration-1000 transition-all ease-in-out ${isLoading ? "top-0 " : "top-[-100%]"}`}>
+    <div className={`w-full h-screen absolute z-40 flex flex-col justify-center items-center duration-1000 transition-all ease-in-out ${isLoading ? "top-0 " : "top-[-200%]"}`}>
         <DynamicBackground imageUrl={Background}/>
         <div className='w-[30%] h-[40%] z-10'>
             <img src={TesaLogo} alt="" className='w-full h-full object-contain' />

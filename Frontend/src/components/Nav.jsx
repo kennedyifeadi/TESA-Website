@@ -35,7 +35,7 @@ export const NavBar = () => {
           <img src={notification} alt=""  className='absolute md:right-0 right-[-40px]' />
         </div>
       </div>
-      <div className={`bg-gradient-to-r from-[#007AFF] to-[#FA8F21] md:bg-none flex md:flex-row flex-col h-screen justify-center ${dialogClicked ? "right-0" : "right-[-500px]"} w-[80%] ${searchClicked ? "md:w-[70%]": "md:w-[80%]"} duration-500 transition-all ease-in-out md:h-full items-start md:items-center border-b-[#07101B] border-b md:right-0 md:relative absolute`}>
+      <div className={`bg-gradient-to-r from-[#007AFF] to-[#FA8F21] md:bg-none flex md:flex-row flex-col h-screen justify-center ${dialogClicked ? "right-0" : "right-[-1000px]"} w-[80%] ${searchClicked ? "md:w-[70%]": "md:w-[80%]"} duration-500 transition-all ease-in-out md:h-full items-start md:items-center border-b-[#07101B] border-b md:right-0 md:relative absolute`}>
       <IoMdClose className="flex md:hidden text-white absolute top-4 right-0 cursor-pointer text-5xl" onClick={handleDialogClick}/>
         {
           NavItems.map((nav, index)=>{
@@ -47,7 +47,7 @@ export const NavBar = () => {
           })
         }
       </div>
-      <div className={`flex md:right-0 h-full w-[80%] justify-center  ${searchClicked ? "md:w-[20%]": "md:w-[10%]"} items-center duration-500 transition-all ease-in-out absolute ${dialogClicked ? "right-0" : "right-[-500px]"}  top-[30%] md:top-0 md:relative`}>
+      <div className={`flex md:right-0 h-full w-[80%] justify-center  ${searchClicked ? "md:w-[20%]": "md:w-[10%]"} items-center duration-500 transition-all ease-in-out absolute ${dialogClicked ? "right-0" : "right-[-1000px]"}  top-[30%] md:top-0 md:relative`}>
         <div className={`h-full hidden md:flex items-center w-[40%] ${searchClicked ? "md:w-[20%]": "md:w-[40%]"} duration-500 transition-all ease-in-out cursor-pointer`}>
           <img src={UserIcon} alt="" />
         </div>
