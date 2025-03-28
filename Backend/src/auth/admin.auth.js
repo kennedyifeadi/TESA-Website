@@ -1,10 +1,12 @@
 const authAdmin = (req,res,next) => {
 
     try {
-        if(req.session.admin.login == null || req.session.admin.login == undefined){
+        if(req.session.admin == null || req.session.admin == undefined){
+            console.log(req.session.admin + "error")
             throw new Error("session expired");
         }
         else{
+            console.log(req.session.admin + "success")
             next()
         }
     } catch (error) {

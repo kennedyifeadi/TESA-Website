@@ -1,9 +1,9 @@
 import express from "express"
-import {uploadExco,getExco} from "../../controllers/images.cloudinary.js"
-import { postAdvert } from "../../controllers/advert.controller.js"
-import { postEvents } from "../../controllers/event.controller.js"
-import { postSponsor } from "../../controllers/sponsor.controller.js"
-import { eventImages } from "../../controllers/eventImages.controller.js"
+import {uploadExco,getExco, deleteExco} from "../../controllers/images.cloudinary.js"
+import { deleteAdvert, postAdvert } from "../../controllers/advert.controller.js"
+import { deleteEvent, postEvents } from "../../controllers/event.controller.js"
+import { deleteSponsor, postSponsor } from "../../controllers/sponsor.controller.js"
+import { deleteEventImage, eventImages } from "../../controllers/eventImages.controller.js"
 import signup from "../../controllers/signup.controller.js"
 import login from "../../controllers/login.controller.js"
 import authAdmin from "../../auth/admin.auth.js"
@@ -16,9 +16,14 @@ adminRouter.post("/signup", signup)
 
 adminRouter.use(authAdmin)
 adminRouter.post("/uploadExco",uploadExco)
+adminRouter.post("/deleteExco",deleteExco)
 adminRouter.post("/postAdvert", postAdvert)
+adminRouter.post("/deleteAdvert",deleteAdvert)
 adminRouter.post("/postEvent", postEvents)
+adminRouter.post("/deleteEvent", deleteEvent)
 adminRouter.post("/postSponsor", postSponsor)
+adminRouter.post("/deleteSponsor", deleteSponsor)
 adminRouter.post("/postEventImages", eventImages)
+adminRouter.post("/deleteEventImages", deleteEventImage)
 export default adminRouter
 

@@ -37,7 +37,7 @@ export const postSponsor = async (req,res) => {
                 success:true,
                 message:"successfully added Sponsors",
                 data:{
-                    image:sponsImage, 
+                    image:sponsImage.secure_url, 
                     name:name,
                     position:position,
                     text:text
@@ -79,6 +79,35 @@ export const getSponsor = async (req,res) => {
             res.status(404).json({
                 success: false,
                 message: "could'nt get Sponsor",
+            })
+        }
+    }
+}
+
+export const deleteSponsor = async (req,res) => {
+    const {_id} = req.body
+    try {
+        const Response = await sponsorModel.deleteOne({_id:_id})
+        console.log(Response)
+        if(!Response){
+            throw new Error("couldn't delete data");
+        }
+        if(Response){
+            res.status(200).json({
+                success:true,
+                message:"advert deleted successfully",
+                data:{
+                    Response
+                }
+            })
+        }
+    } catch (error) {
+        if(error){
+            console.log(error)
+            res.status(404).json({
+                success:false,
+                message:"couldn't delete data",
+                error
             })
         }
     }

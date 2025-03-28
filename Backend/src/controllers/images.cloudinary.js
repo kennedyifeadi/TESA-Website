@@ -77,3 +77,32 @@ export const getExco = async (req,res) => {
         }
     }
 }
+
+export const deleteExco = async (req,res) => {
+    const {_id} = req.body
+    try {
+        const Response = await executiveModel.deleteOne({_id:_id})
+        console.log(Response)
+        if(!Response){
+            throw new Error("couldn't delete data");
+        }
+        if(Response){
+            res.status(200).json({
+                success:true,
+                message:"advert deleted successfully",
+                data:{
+                    Response
+                }
+            })
+        }
+    } catch (error) {
+        if(error){
+            console.log(error)
+            res.status(404).json({
+                success:false,
+                message:"couldn't delete data",
+                error
+            })
+        }
+    }
+}
