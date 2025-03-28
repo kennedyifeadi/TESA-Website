@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import TesaLogo from "../assets/images/tesaLogo.png"
 import notification from "../assets/icons/notif.png"
@@ -19,9 +19,6 @@ export const NavBar = () => {
   const handleDialogClick = ()=>{
     setDialogClicked(!dialogClicked)
   }
-  useEffect(()=>{
-    console.log(searchClicked);
-  })
   return (
     <div className='w-full h-[20dvh] md:h-[10dvh] flex px-4 absolute top-0 right-0 z-20'>
       <div className='flex h-full flex-col md:flex-row w-full md:w-[10%] items-center'>
