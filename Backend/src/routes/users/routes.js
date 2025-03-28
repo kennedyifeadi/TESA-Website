@@ -9,7 +9,7 @@ const userRouter = express.Router()
 userRouter.get("/getExco", getExco)
 userRouter.get("/getAdverts", getAdvert)
 userRouter.get("/getEvents",getEvents)
-userRouter.get("/getSponsor", getSponsor)
+userRouter.get("/getSponsors", getSponsor)
 userRouter.get("/getEventImages", geteventImages)
 
 export default userRouter
