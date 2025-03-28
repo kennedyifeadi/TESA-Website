@@ -17,7 +17,7 @@ export const Carousel = () => {
       <div className="w-full h-full text-white rounded-md">
       <Swiper
         spaceBetween={20}
-        slidesPerView={1.5}
+        slidesPerView={1.1}
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
