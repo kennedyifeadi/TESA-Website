@@ -9,7 +9,7 @@ const Departments = [
         abb: "Agric",
         full: "Agricultural and Environmental Engineering",
         links:{
-            100: "wewewew",
+            100: "https://google.com",
             200: "",
             300: "",
             400: "",
