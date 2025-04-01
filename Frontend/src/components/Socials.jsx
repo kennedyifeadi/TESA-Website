@@ -40,7 +40,7 @@ export const Socials = () => {
     },
   ]
   return (
-    <div className='w-full h-[ 10dvh] md:h-[15dvh] bg-[#1f1e1e] flex' >
+    <div className='w-full h-[10dvh] md:h-[15dvh] bg-[#1f1e1e] flex' >
       {
         Socials.map((social, index)=>{
           return (

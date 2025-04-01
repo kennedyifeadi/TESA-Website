@@ -65,7 +65,7 @@ export const Newsletter = () => {
       <div className='w-full md:w-[30%] h-[50%] md:h-full flex justify-center items-center md:px-6 relative'>
         <div className='w-[90%] h-[80%] md:h-[50%] rounded-md' style={{background: "linear-gradient(90deg, #007AFF 0%, #FA8F21 100%)"}}></div>
         <div className='absolute w-full bottom-0 flex h-[70%] justify-center'>
-          <div className='flex h-[10%] w-full top-0 absolute '>
+          <div className='flex h-[10%] w-full top-0 absolute'>
             <img src={cloud} alt="" className='absolute top-3 left-10  w-[20%] h-full' />
             <img src={cloud} alt="" className='absolute top-[-15px] left-40 w-[20%] h-full'/>
             <img src={cloud} alt="" className='absolute top-3 right-10 w-[20%] h-full' />
