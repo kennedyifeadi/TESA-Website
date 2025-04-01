@@ -18,7 +18,7 @@ const Departments = [
     },
     {
         abb: "Automotive",
-        full: "Automitive Engineering",
+        full: "Automotive Engineering",
         links:{
             100: "",
             200: "",
@@ -107,7 +107,7 @@ const Departments = [
 ]
 export const FilterResources = () => {
     const [activeLevel, setActiveLevel] = useState(null);
-    const [selectedLevel, setSelectedLevel] = useState(100);
+    const [selectedLevel, setSelectedLevel] = useState();
     const [SelectedDepartment, setSelectedDepartment] = useState(Departments[0]);
     const [activeDepartment, setActiveDepartment] = useState(null);
     const {setLevel, setDepartment, setLink} = useContext(ResoucesContext)
@@ -120,6 +120,8 @@ export const FilterResources = () => {
     }
     const handleReset = ()=>{
         setActiveDepartment(null)
+        setSelectedDepartment(Departments[0])
+        setSelectedLevel(500)
         setActiveLevel(null)
         setLevel(500)
         setDepartment(Departments[0].full);
