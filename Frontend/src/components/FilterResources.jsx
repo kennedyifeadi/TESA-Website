@@ -1,30 +1,135 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DynamicBackground } from './DynamicBackground'
 import ResourceBG from "../assets/images/resourceBG.png"
-import { motion } from "framer-motion";
+import { ResoucesContext } from '../context/ResoucesContext';
 
-
+const levels = [100, 200, 300, 400, 500]
+const Departments = [
+    {
+        abb: "Agric",
+        full: "Agricultural and Environmental Engineering",
+        links:{
+            100: "wewewew",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Automotive",
+        full: "Automitive Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Civil",
+        full: "Civil Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Elect",
+        full: "Electrial and Electronic Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Food Tech",
+        full: "Food Technology",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "IPE",
+        full: "Industrial and Production Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Mech",
+        full: "Mechanical Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Petroleum",
+        full: "Petroleum Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+    {
+        abb: "Wood",
+        full: "Wood and Biomaterial Engineering",
+        links:{
+            100: "",
+            200: "",
+            300: "",
+            400: "",
+            500: ""
+        }
+    },
+]
 export const FilterResources = () => {
     const [activeLevel, setActiveLevel] = useState(null);
+    const [selectedLevel, setSelectedLevel] = useState(100);
+    const [SelectedDepartment, setSelectedDepartment] = useState(Departments[0]);
     const [activeDepartment, setActiveDepartment] = useState(null);
-    const [level, setLevel] = useState(400);
-    const [Department, setDepartment] = useState("Mechanical Engineering")
+    const {setLevel, setDepartment, setLink} = useContext(ResoucesContext)
     const handleApply = ()=>{
-        // setLevel(400)
-        // setDepartment("Mechanical Engineering")
+        setLevel(selectedLevel)
+        setLink(()=> SelectedDepartment.links[selectedLevel]);
+        setDepartment(SelectedDepartment.full)
+        setActiveDepartment(null)
+        setActiveLevel(null)
     }
     const handleReset = ()=>{
         setActiveDepartment(null)
         setActiveLevel(null)
         setLevel(400)
-        setDepartment("Mechanical Engineering")
+        setDepartment(Departments[0].full);
     }
+    // useEffect(() => {
+    //     if (SelectedDepartment.links) {
+    //         console.log();
+    //     }
+    // }, [SelectedDepartment, selectedLevel]); 
 
-    useEffect(()=>{
-        console.log(level, Department);
-    })
-    const levels = [100, 200, 300, 400, 500]
-    const Departments = ["Agric", "Auto", "Elect", "Civil"," IPE", "Food Tech", "Mech", "Petroleum", "Woods" ]
   return (
     <div className='h-screen w-full flex relative'>
         <DynamicBackground imageUrl={ResourceBG}/>
@@ -45,7 +150,7 @@ export const FilterResources = () => {
                             levels.map((level, index)=>{
                                 const isActive = activeLevel === level;
                                 return (
-                                    <span key={index} className={`w-[100px] md:w-[150px] cursor-pointer ${isActive ? "bg-[#007AFF] text-white border-[#007AFF]" : " bg-transparent text-black"} duration-500 ease-in-out active:scale-90 hover:bg-[#007AFF] hover:text-white hover:border-[#007AFF] h-[40px] flex justify-center items-center font-semibold border rounded-md text-xl md:text-3xl`} onClick={() => {setLevel(level); setActiveLevel(level)}}>{level}</span>
+                                    <span key={index} className={`w-[100px] md:w-[150px] cursor-pointer ${isActive ? "bg-[#007AFF] text-white border-[#007AFF]" : " bg-transparent text-black"} duration-500 ease-in-out active:scale-90 hover:bg-[#007AFF] hover:text-white hover:border-[#007AFF] h-[40px] flex justify-center items-center font-semibold border rounded-md text-xl md:text-3xl`} onClick={() => {setSelectedLevel(level); setActiveLevel(level)}}>{level}</span>
 
                                 )
                             })
@@ -58,9 +163,9 @@ export const FilterResources = () => {
                 <span className='w-full flex flex-wrap gap-2 md:gap-4 justify-center md:justify-between h-max' style={{ fontFamily: '"poppins", sans-serif' }}>
                     {
                         Departments.map((Department, index)=> {
-                            const isActive = activeDepartment === Department;
+                            const isActive = activeDepartment === Department.abb;
                             return(
-                                <span key={index} className={`w-[30%] md:w-[30%] md:max-w-[200px] ${isActive ? "bg-[#007AFF] text-white border-[#007AFF]" : " bg-transparent text-black"} cursor-pointer duration-500 ease-in-out active:scale-90 hover:bg-[#007AFF] hover:text-white hover:border-[#007AFF] h-[40px] flex justify-center items-center font-semibold border rounded-md text-[15px] md:text-3xl`} onClick={() => {setDepartment(Department); setActiveDepartment(Department)}}>{Department}</span>
+                                <span key={index} className={`w-[30%] md:w-[30%] md:max-w-[200px] ${isActive ? "bg-[#007AFF] text-white border-[#007AFF]" : " bg-transparent text-black"} cursor-pointer duration-500 ease-in-out active:scale-90 hover:bg-[#007AFF] hover:text-white hover:border-[#007AFF] h-[40px] flex justify-center items-center font-semibold border rounded-md text-[15px] md:text-3xl`} onClick={() => {setSelectedDepartment(Department); setActiveDepartment(Department.abb)}}>{Department.abb}</span>
                             )
                         })
                     }
