@@ -121,7 +121,7 @@ export const FilterResources = () => {
     const handleReset = ()=>{
         setActiveDepartment(null)
         setActiveLevel(null)
-        setLevel(400)
+        setLevel(500)
         setDepartment(Departments[0].full);
     }
     // useEffect(() => {
