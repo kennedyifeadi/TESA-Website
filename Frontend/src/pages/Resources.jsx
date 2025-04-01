@@ -3,15 +3,20 @@ import { ResourceLanding } from '../components/ResourceLanding'
 import { FilterResources } from '../components/FilterResources'
 import { FilteredResouces } from '../components/FilteredResouces'
 import { ResoucesContextProvider } from '../context/ResoucesContext'
+import { motion } from 'framer-motion' 
 
 export const Resources = () => {
   return (
-    <div className='w-full h-max flex flex-col'>
+    <motion.div
+    initial = {{x:300}}
+    animate = {{x:0}}
+    transition={{duration: 1}}
+     className='w-full h-max flex flex-col'>
       <ResourceLanding/>
       <ResoucesContextProvider>
         <FilterResources/>
         <FilteredResouces/>
       </ResoucesContextProvider>
-    </div>
+    </motion.div>
   )
 }
