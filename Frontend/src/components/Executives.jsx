@@ -10,7 +10,6 @@ export const Executives = () => {
     try {
       const response = await axios.get("https://tesa-website.onrender.com/users/getExco");
       return Array.isArray(response.data.data.executives) ? response.data.data.executives : []; 
-     
     } catch (error) {
       console.error("Error fetching executives:", error);
       return [];
@@ -21,7 +20,12 @@ export const Executives = () => {
     const fetchExecutives = async () => {
       try {
         const storedExecutives = localStorage.getItem("executives");
-        if (storedExecutives) {
+        const lastUpdated = localStorage.getItem("executives_last_updated");
+
+        const now = new Date().getTime();
+        const twentyFourHours = 1000 ;
+
+        if (storedExecutives && lastUpdated && now - lastUpdated < twentyFourHours) {
           const parsedExecutives = JSON.parse(storedExecutives);
           if (Array.isArray(parsedExecutives)) {
             setExecutives(parsedExecutives);
@@ -32,6 +36,7 @@ export const Executives = () => {
         const data = await getExecutives();
         setExecutives(data);
         localStorage.setItem("executives", JSON.stringify(data));
+        localStorage.setItem("executives_last_updated", now.toString());
       } catch (error) {
         console.error("Error processing executives:", error);
       }
