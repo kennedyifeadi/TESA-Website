@@ -23,7 +23,7 @@ export const Executives = () => {
         const lastUpdated = localStorage.getItem("executives_last_updated");
 
         const now = new Date().getTime();
-        const twentyFourHours = 1000 ;
+        const twentyFourHours = 24 * 60 * 60 * 1000; 
 
         if (storedExecutives && lastUpdated && now - lastUpdated < twentyFourHours) {
           const parsedExecutives = JSON.parse(storedExecutives);
