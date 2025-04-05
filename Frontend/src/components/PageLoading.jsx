@@ -41,7 +41,8 @@ export const PageLoading = () => {
         </div>
         <SplitText
   text="TESA Loading!!"
-  className="text-2xl font-semibold text-center"
+  style={{ fontFamily: '"Orbitron", sans-serif' }}
+  className="text-2xl md:text-4xl font-semibold text-center mb-5"
   delay={200}
   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
