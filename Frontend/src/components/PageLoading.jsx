@@ -36,13 +36,12 @@ export const PageLoading = () => {
   return (
     <div className={`w-full h-screen absolute z-40 flex flex-col justify-center items-center duration-1000 transition-all ease-in-out ${isLoading ? "top-0 " : "top-[-200%]"}`}>
         <DynamicBackground imageUrl={Background}/>
-        <div className='w-[30%] h-[40%] z-10'>
+        <div className='w-[50%] h-[30%]md:w-[30%] md:h-[40%] z-10 border'>
             <img src={TesaLogo} alt="" className='w-full h-full object-contain' />
         </div>
         <SplitText
-  text="TESA Loading!!"
-  style={{ fontFamily: '"Orbitron", sans-serif' }}
-  className="text-2xl md:text-4xl font-semibold text-center mb-5"
+  text="TESA Loading"
+  className="text-2xl md:text-4xl font-semibold loaderScreen text-center mb-5 mt-5"
   delay={200}
   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
