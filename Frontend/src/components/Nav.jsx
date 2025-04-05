@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
-import TesaLogo from "../assets/images/logo.svg"
+import TesaLogo from "../assets/images/logo.png"
 import notification from "../assets/icons/notif.png"
 import UserIcon from "../assets/icons/user.png"
 import SearcgIcon from "../assets/icons/search.png"

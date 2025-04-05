@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DynamicBackground } from './DynamicBackground';
 import Background from "../assets/images/HeroSectionBackground.jpg";
-import TesaLogo from "../assets/images/logo.svg"
+import TesaLogo from "../assets/images/logo.png"
 import { NavContext } from '../context/NavContext';
 import SplitText from "./Animations/SplitText";
 
