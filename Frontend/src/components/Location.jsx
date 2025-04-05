@@ -20,7 +20,7 @@ export const Location = () => {
         </div>
       </div>
       <div className='h-[33.33%] w-full relative flex justify-center items-center'>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.52962651606686!2d3.8921383349997534!3d7.439006857555831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f2bc3f43cdbf%3A0xff9f4ea053132db0!2sFaculty%20Of%20Technology!5e0!3m2!1sen!2sng!4v1742559546190!5m2!1sen!2sng" className='w-full h-full border-0' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.52962651606686!2d3.8921383349997534!3d7.439006857555831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f2bc3f43cdbf%3A0xff9f4ea053132db0!2sFaculty%20Of%20Technology!5e0!3m2!1sen!2sng!4v1742559546190!5m2!1sen!2sng" className='w-full h-full border-0' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   )
