@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
-import TesaLogo from "../assets/images/tesaLogo.png"
+import TesaLogo from "../assets/images/logo.svg"
 import notification from "../assets/icons/notif.png"
 import UserIcon from "../assets/icons/user.png"
 import SearcgIcon from "../assets/icons/search.png"
@@ -23,7 +23,7 @@ export const NavBar = () => {
     <div className='w-full h-[20dvh] md:h-[10dvh] flex px-4 absolute top-0 right-0 z-20'>
       <div className='flex h-full flex-col md:flex-row w-full md:w-[10%] items-center'>
         <div className='w-full justify-center md:w-[60%] h-[50%] md:h-full flex items-center cursor-pointer'>
-          <NavLink to="/">
+          <NavLink to="/" className='w-full h-full py-1'>
             <img src={TesaLogo} alt="" className='w-full h-full object-contain cursor-pointer' />
           </NavLink>
         </div>

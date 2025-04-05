@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DynamicBackground } from './DynamicBackground';
 import Background from "../assets/images/HeroSectionBackground.jpg";
-import TesaLogo from "../assets/images/logo.png"
+import TesaLogo from "../assets/images/logo.svg"
 import { NavContext } from '../context/NavContext';
 import SplitText from "./Animations/SplitText";
 
@@ -36,7 +36,7 @@ export const PageLoading = () => {
   return (
     <div className={`w-full h-screen absolute z-40 flex flex-col justify-center items-center duration-1000 transition-all ease-in-out ${isLoading ? "top-0 " : "top-[-200%]"}`}>
         <DynamicBackground imageUrl={Background}/>
-        <div className='w-[50%] h-[30%]md:w-[30%] md:h-[40%] z-10 border'>
+        <div className='w-[60%] h-[30%] md:w-[30%] md:h-[40%] z-10'>
             <img src={TesaLogo} alt="" className='w-full h-full object-contain' />
         </div>
         <SplitText
