@@ -25,18 +25,22 @@ export const Executives = () => {
         const now = new Date().getTime();
         const twentyFourHours = 24 * 60 * 60 * 1000; 
 
-        if (storedExecutives && lastUpdated && now - lastUpdated < twentyFourHours) {
+        if (!storedExecutives || storedExecutives === "[]" || !lastUpdated || now - lastUpdated > twentyFourHours) {
+          const data = await getExecutives();
+          setExecutives(data);
+          localStorage.setItem("executives", JSON.stringify(data));
+          localStorage.setItem("executives_last_updated", now.toString());
+        } else {
           const parsedExecutives = JSON.parse(storedExecutives);
-          if (Array.isArray(parsedExecutives)) {
+          if (Array.isArray(parsedExecutives) && parsedExecutives.length > 0) {
             setExecutives(parsedExecutives);
-            return;
+          } else {
+            const data = await getExecutives();
+            setExecutives(data);
+            localStorage.setItem("executives", JSON.stringify(data));
+            localStorage.setItem("executives_last_updated", now.toString());
           }
         }
-
-        const data = await getExecutives();
-        setExecutives(data);
-        localStorage.setItem("executives", JSON.stringify(data));
-        localStorage.setItem("executives_last_updated", now.toString());
       } catch (error) {
         console.error("Error processing executives:", error);
       }
