@@ -1,5 +1,5 @@
 import express from "express"
-import {uploadExco,getExco, deleteExco} from "../../controllers/images.cloudinary.js"
+import {uploadExco,getExco, deleteExco} from "../../controllers/executives.controller.js"
 import { deleteAdvert, postAdvert } from "../../controllers/advert.controller.js"
 import { deleteEvent, postEvents } from "../../controllers/event.controller.js"
 import { deleteSponsor, postSponsor } from "../../controllers/sponsor.controller.js"
@@ -26,4 +26,6 @@ adminRouter.post("/deleteSponsor", deleteSponsor)
 adminRouter.post("/postEventImages", eventImages)
 adminRouter.post("/deleteEventImages", deleteEventImage)
 export default adminRouter
+
+
 

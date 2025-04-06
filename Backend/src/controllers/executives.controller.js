@@ -5,7 +5,7 @@ import executiveModel from "../models/executive.model.js"
 
  export const uploadExco = async (req,res) => {
 
-    const {name,department,level,position,image} = req.body
+    const {name,department,level,position,image,emailAddress,phoneNumber,twitterHandle,instagramHandle} = req.body
 
     try {
         
@@ -19,7 +19,11 @@ import executiveModel from "../models/executive.model.js"
         department:department,
         level:level,
         position:position,
-        image:uploadResult.secure_url
+        image:uploadResult.secure_url,
+        emailAddress: emailAddress,
+        phoneNumber: phoneNumber,
+        twitterHandle: twitterHandle,
+        instagramHandle: instagramHandle
     })
     if(send){
         res.status(200).json({
@@ -30,7 +34,12 @@ import executiveModel from "../models/executive.model.js"
                 department:department,
                 level:level,
                 position:position,
-                image:uploadResult.secure_url
+                image:uploadResult.secure_url,
+                emailAddress: emailAddress,
+                phoneNumber: phoneNumber,
+                twitterHandle: twitterHandle,
+                instagramHandle: instagramHandle
+
             }
         })
     
@@ -62,7 +71,7 @@ export const getExco = async (req,res) => {
             success:true,
             message:"data gotten successfully",
             data:{
-                executives:executives
+                executives:executives.reverse()
             }
         })
     } catch (error) {
