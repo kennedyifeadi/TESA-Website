@@ -5,7 +5,11 @@ const executiveSchema = new mongoose.Schema({
     department:String,
     level:Number,
     position:String,
-    image:String
+    image:String,
+    emailAddress:String,
+    phoneNumber:String,
+    twitterHandle:String,
+    instagramHandle:String,
 })
 const executiveModel = mongoose.model("executives", executiveSchema)
 

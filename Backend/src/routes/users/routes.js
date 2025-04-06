@@ -1,5 +1,5 @@
 import express from "express"
-import { getExco } from "../../controllers/images.cloudinary.js"
+import { getExco } from "../../controllers/executives.controller.js"
 import { getAdvert } from "../../controllers/advert.controller.js"
 import { getEvents } from "../../controllers/event.controller.js"
 import { getSponsor } from "../../controllers/sponsor.controller.js"
@@ -13,3 +13,4 @@ userRouter.get("/getSponsors", getSponsor)
 userRouter.get("/getEventImages", geteventImages)
 
 export default userRouter
+
