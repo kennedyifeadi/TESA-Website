@@ -21,7 +21,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div className="flex h-screen w-full relative md:px-8 items-end justify-center">
+    <div className="flex h-screen w-full relative md:px-8 items-end justify-center z-10">
       <DynamicBackground imageUrl={Background} />
       <div className="w-full h-[80%] md:h-[90%] flex flex-col-reverse md:flex-row z-10 md:px-6">
         <div className="flex flex-col h-[50%] md:h-full w-full md:w-[40%] justify-center px-8 md:px-0">
@@ -31,7 +31,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1
-              className="text-5xl md:text-9xl tracking-[40px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
+              className="text-6xl md:text-7xl lg:text-9xl tracking-[20px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
               style={{ fontFamily: '"Aldrich", sans-serif' }}
             >
               TESA
@@ -95,13 +95,13 @@ export const HeroSection = () => {
           <img
             src={technology}
             alt=""
-            className="absolute w-[70%] md:w-full bottom-10 h-[70%] md:h-[90%] left-[30px] md:left-[0px] object-contain md:object-contain"
+            className="absolute w-[70%] md:w-[50%] bottom-14 h-[70%] md:h-[70%] left-[30px] md:left-[100px] object-contain"
           />
           <img
             src={engineer}
             alt=""
-            className="h-full w-full md:w-full object-cover md:object-cover"
-            style={{ objectPosition: "-20px" }}
+            className="h-full w-full md:w-full object-contain"
+            // style={{ objectPosition: "-20px" }}
           />
         </motion.div>
       </div>

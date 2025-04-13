@@ -14,7 +14,7 @@ export const TesaPress = () => {
     <div className='w-full h-[120dvh] md:gap-4 px-2 md:px-8 flex flex-col items-center py-10'>
       <h1 className='text-black text-3xl md:text-5xl w-full text-center' style={{ fontFamily: '"Aldrich", sans-serif' }}>TESA Press</h1>
       <p className='text-[#392B1A] w-full text-center text-[15px]'  style={{fontFamily:'"Poppins", sans-serif'}}>Stories about students, events, research and innovation across the faculty</p>
-      <div className='w-full h-[80%]'>
+      <div className='w-full h-[90%] flex justify-center'>
         <ImageGrid images={images}/>
       </div>
       <div className='w-full h-[20%] flex justify-center items-center'>

@@ -1,5 +1,5 @@
 import electricPole from "../assets/images/electricity-transmission-WdNBYQuICi.png"
-import tesaLogo from "../assets/images/tesaLogo.png"
+import tesaLogo from "../assets/images/logo.png"
 export const FrameworkObject =[
     {
         id: 1,
