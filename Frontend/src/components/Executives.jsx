@@ -56,7 +56,7 @@ export const Executives = () => {
           Meet the Executives
         </h1>
       </div>
-      <div className='flex flex-wrap justify-center w-full md:px-6 h-max gap-4'>
+      <div className='grid grid-cols-2 md:grid-cols-3 w-full md:px-6 h-max gap-4 border'>
         {
           executives.length > 0 ? (
             executives.map((card, index) => (
@@ -65,7 +65,7 @@ export const Executives = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index / 5 }}
                 viewport={{ once: true }}
-                className='flex w-max h-max'
+                className='flex w-full h-full'
                 key={index}
               >
                 <ExecutivesCard Email={card.Email} Image={card.image} Instagram={card.Instagram} Level={card.level} Name={card.name} Position={card.position} Twitter={card.Twitter} />
