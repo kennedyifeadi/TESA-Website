@@ -7,6 +7,7 @@ import { Adverts } from "../components/Admin/Adverts";
 import { AdminEvents } from "../components/Admin/Events";
 import { AdminSponsors } from "../components/Admin/Sponsors";
 import { AdminResources } from "../components/Admin/Resources";
+import { SignIn } from "../pages/SignIn";
 
 export const AppWrapper = () => {
     const location = useLocation();
@@ -30,7 +31,9 @@ export const AppWrapper = () => {
             <Route path="sponsors" element={<AdminSponsors />} />
             <Route path="resources" element={<AdminResources />} />
             <Route path="adverts" element={<Adverts />} />
+            <Route path="*" element={<SignIn />} />
           </Route>
+            <Route path="/admin/signIn" element={<SignIn />} />
         </Routes>
       </div>
     );
