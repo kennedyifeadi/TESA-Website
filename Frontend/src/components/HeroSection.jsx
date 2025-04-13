@@ -95,13 +95,13 @@ export const HeroSection = () => {
           <img
             src={technology}
             alt=""
-            className="absolute w-[70%] md:w-full bottom-10 h-[70%] md:h-[90%] left-[30px] md:left-[0px] object-contain md:object-contain"
+            className="absolute w-[70%] md:w-[50%] bottom-14 h-[70%] md:h-[70%] left-[30px] md:left-[100px] object-contain"
           />
           <img
             src={engineer}
             alt=""
-            className="h-full w-full md:w-full object-cover md:object-cover"
-            style={{ objectPosition: "-20px" }}
+            className="h-full w-full md:w-full object-contain"
+            // style={{ objectPosition: "-20px" }}
           />
         </motion.div>
       </div>
