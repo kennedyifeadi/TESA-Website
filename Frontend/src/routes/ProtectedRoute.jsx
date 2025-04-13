@@ -6,7 +6,7 @@ export const ProtectedRoute = ({ children }) => {
   const { adminToken } = useAuth();
 
   if (!adminToken) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/admin/signIn" replace />;
   }
 
   return children;
