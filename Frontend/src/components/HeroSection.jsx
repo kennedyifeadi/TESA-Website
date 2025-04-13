@@ -21,7 +21,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div className="flex h-screen w-full relative md:px-8 items-end justify-center">
+    <div className="flex h-screen w-full relative md:px-8 items-end justify-center z-10">
       <DynamicBackground imageUrl={Background} />
       <div className="w-full h-[80%] md:h-[90%] flex flex-col-reverse md:flex-row z-10 md:px-6">
         <div className="flex flex-col h-[50%] md:h-full w-full md:w-[40%] justify-center px-8 md:px-0">
