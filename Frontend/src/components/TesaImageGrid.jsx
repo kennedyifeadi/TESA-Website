@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const ImageGrid = ({ images }) => {
   return (
-    <div className="grid grid-cols-3 grid-rows-3 gap-x-4 w-full h-full max-w-[800px] mx-auto">
+    <div className="grid grid-cols-3 grid-rows-3 w-full h-full max-w-[800px] ">
       {images.map((src, index) => (
         <motion.div
         initial = {{opacity: 0, scale: 0.5}}
@@ -15,7 +15,7 @@ export const ImageGrid = ({ images }) => {
             index === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
           }`}
         >
-          <img src={src} alt={`image-${index}`} className="w-full h-full object-cover" />
+          <img src={src} alt={`image-${index}`} className="w-full h-full object-contain" />
         </motion.div>
       ))}
     </div>
