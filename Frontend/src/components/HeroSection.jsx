@@ -31,7 +31,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1
-              className="text-5xl md:text-9xl tracking-[40px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
+              className="text-6xl md:text-7xl lg:text-9xl tracking-[20px] md:tracking-[40px] md:leading-20 text-[#1E1E1E]"
               style={{ fontFamily: '"Aldrich", sans-serif' }}
             >
               TESA
