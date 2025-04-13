@@ -68,7 +68,7 @@ export const Executives = () => {
                 className='flex w-full h-full'
                 key={index}
               >
-                <ExecutivesCard Email={"mailto:" + card.emailAddress} Image={card.image} Instagram={card.Instagram} Level={card.level} Name={card.name} Position={card.position} Twitter={card.Twitter} />
+                <ExecutivesCard Email={"mailto:" + card.emailAddress} Image={card.image} Instagram={"https://instagram.com/" + card.instagramHandle} Level={card.level} Name={card.name} Position={card.position} Twitter={"https://x.com/" +card.twitterHandle} />
               </motion.div>
             ))
           ) : (
