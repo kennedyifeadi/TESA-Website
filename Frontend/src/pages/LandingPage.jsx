@@ -8,14 +8,10 @@ import { Newsletter } from '../components/Newsletter'
 import { Location } from '../components/Location'
 import { Socials } from '../components/Socials'
 import { Executives } from '../components/Executives'
-import { motion } from 'framer-motion' 
 
 export const LandingPage = () => {
   return (
-    <motion.div
-    initial = {{x:-300}}
-    animate = {{x:0}}
-    transition={{duration: 1}}
+    <div
     className='w-full h-max flex flex-col'>
         <HeroSection/>
         <Framework/>
@@ -26,6 +22,6 @@ export const LandingPage = () => {
         <Newsletter/>
         <Location/>
         <Socials/>
-    </motion.div>
+    </div>
   )
 }
