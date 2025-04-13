@@ -16,27 +16,32 @@ export const Socials = () => {
     {
       text: "X/Twitter",
       icon: twitter,
-      hoverIcon: twitterFill
+      hoverIcon: twitterFill,
+      link : "https://x.com/tesa_ui?s=21"
     },
     {
       text: "YouTube",
       icon: youtube,
-      hoverIcon: youtubeFill
+      hoverIcon: youtubeFill,
+      link : ""
     },
     {
       text: "Instagram",
       icon: instagram,
-      hoverIcon: instagramFill
+      hoverIcon: instagramFill,
+      link : "https://www.instagram.com/techites_?igsh=djMycDJ2N3FoaDEy"
     },
     {
       text: "Facebook",
       icon: facebook,
-      hoverIcon: facebookFill
+      hoverIcon: facebookFill,
+      link: "https://www.linkedin.com/company/tesa-ui/"
     },
     {
       text: "Email",
       icon: email,
-      hoverIcon: mailfill
+      hoverIcon: mailfill,
+      link : ""
     },
   ]
   return (
@@ -44,7 +49,7 @@ export const Socials = () => {
       {
         Socials.map((social, index)=>{
           return (
-            <SocialsCard key={index} text={social.text} icon={social.icon} hoverIcon={social.hoverIcon}/>
+            <SocialsCard key={index} text={social.text} icon={social.icon} hoverIcon={social.hoverIcon} link={social.link}/>
           )
         })
       }
