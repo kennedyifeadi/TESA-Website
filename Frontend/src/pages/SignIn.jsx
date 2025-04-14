@@ -5,11 +5,11 @@ export const SignIn = () => {
     <div className='w-full h-screen flex flex-col md:flex-row'>
       <div className='flex-1 h-full flex'>
         <form action="" className='w-full h-full flex flex-col justify-center items-center'>
-          <div>
+          <div className='w-full flex flex-col'>
             <h1></h1>
             <p></p>
           </div>
-          <div>
+          <div className='w-full flex flex-col'>
             <input type="text" />
             <input type="text" />
           </div>
