@@ -6,8 +6,8 @@ export const SignIn = () => {
       <div className='flex-1 h-full flex'>
         <form action="" className='w-full h-full flex flex-col justify-center items-center'>
           <div className='w-full flex flex-col'>
-            <h1></h1>
-            <p></p>
+            <h1 className='text-xl md:text-2xl lg:text-4xl'>Welcome!</h1>
+            <p className='text-md md:text-lg lg:text-xl'>Let’s get you signed in</p>
           </div>
           <div className='w-full flex flex-col'>
             <input type="text" />
