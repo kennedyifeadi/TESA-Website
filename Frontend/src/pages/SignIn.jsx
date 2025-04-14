@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const SignIn = () => {
   return (
@@ -10,8 +11,9 @@ export const SignIn = () => {
             <p className='text-md md:text-lg lg:text-xl'>Let’s get you signed in</p>
           </div>
           <div className='w-full flex flex-col'>
-            <input type="text" />
-            <input type="text" />
+            <input type="text"  className='w-1/2 h-[50px] border-b border-none' placeholder='Enter Admin Name'/>
+            <input type="password" className='w-1/2 h-[50px] border-b border-none' placeholder='Password' />
+            <NavLink to={'/admin/forgotpassword'} className='text-sm text-[#003366]'><span>Forgot password?</span></NavLink>
           </div>
           <div>
             <button></button>
