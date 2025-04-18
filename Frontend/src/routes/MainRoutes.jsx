@@ -32,9 +32,9 @@ export const AppWrapper = () => {
             <Route path="sponsors" element={<AdminSponsors />} />
             <Route path="resources" element={<AdminResources />} />
             <Route path="adverts" element={<Adverts />} />
-            <Route path="forgotpassword" element={<ForgotPassword />} />
             <Route path="*" element={<SignIn />} />
           </Route>
+            <Route path="/admin/forgotpassword" element={<ForgotPassword />} />
             <Route path="/admin/signIn" element={<SignIn />} />
         </Routes>
       </div>
