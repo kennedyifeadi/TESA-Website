@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { DynamicBackground } from '../components/DynamicBackground'
+import ConstuctionCap from "../assets/images/ConstructionCap.png"
 
 export const SignIn = () => {
   return (
@@ -20,11 +22,12 @@ export const SignIn = () => {
           </div>
         </form>
       </div>
-      <div className='flex-1 h-full flex justify-center items-center'>
-        <div className='w-[80%] h-[80%] rounded-3xl flex justify-center items-center'>
-          <div className='w-[80%] border-[2px] border-dashed h-[40%] flex justify-center items-center'>
-            <h1 className='text-xl md:text-4xl lg:text-7xl loaderScreen'>
-
+      <div className='flex-1 h-full flex justify-center items-center relative'>
+        <DynamicBackground imageUrl={ConstuctionCap} />
+        <div className='w-[80%] h-[80%] rounded-3xl flex justify-center items-center relative'>
+          <div className='w-[80%] border-[2px] border-dashed h-[40%] flex justify-center items-center border-white rounded-sm'>
+            <h1 className='text-xl md:text-4xl lg:text-6xl loaderScreen uppercase text-white text-center leading-24'>
+              Welcome <br /> Back
             </h1>
           </div>
         </div>
