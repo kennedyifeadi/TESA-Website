@@ -76,7 +76,7 @@ export const SignIn = () => {
           <div className='w-full h-max mt-2'>
             <button 
               type="submit" 
-              className='h-[50px] active:scale-95 duration-500 ease-in-out bg-[#392B1A] w-1/2 rounded-md text-white font-medium'>
+              className='h-[50px] cursor-pointer active:scale-95 duration-500 ease-in-out bg-[#392B1A] w-1/2 rounded-md text-white font-medium'>
               Sign in
             </button>
           </div>
