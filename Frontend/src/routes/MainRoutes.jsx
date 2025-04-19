@@ -27,7 +27,7 @@ export const AppWrapper = () => {
               </ProtectedRoute>
             }
           >
-            <Route path="" element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="events" element={<AdminEvents />} />
             <Route path="sponsors" element={<AdminSponsors />} />
             <Route path="resources" element={<AdminResources />} />
