@@ -17,7 +17,7 @@ export const AdminLayout = () => {
         <div className='w-[200px] md:w-[20%] lg:w-[15%] h-full absolute md:relative top-0'>
             <SideBar/>
         </div>
-        <main className='h-[90%] md:h-full w-full md:w-[80%] lg:w-[75%]'>
+        <main className='h-[90%] md:h-full w-full md:w-[80%] lg:w-[85%]'>
             <Outlet/>
         </main>
       </div>
