@@ -3,59 +3,55 @@ import { DynamicBackground } from "../DynamicBackground";
 import ConstructionTape from "../../assets/images/ConstructionTape.png";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FiUsers } from "react-icons/fi";
+import { FiVideo } from "react-icons/fi";
+import { FaRegSmile } from "react-icons/fa";
+import { IoBookOutline } from "react-icons/io5";
+import { FcAdvertising } from "react-icons/fc";
+import { useAuth } from "../../context/AuthProvider";
+import TesaLogo from "../../assets/images/logo.png";
+import toast, { Toaster } from "react-hot-toast";
+
+
 export const SideBar = () => {
+  const {signout} = useAuth();
+
+  const handleClick = () => {
+    toast.success("The best faculty is TESA")
+  }
   const sideBarLinks = [
-    { name: "Excos Upload", path: "/admin/dashboard" },
-    { name: "Adverts", path: "/admin/adverts" },
-    { name: "Events", path: "/admin/events" },
-    { name: "Sponsors", path: "/admin/sponsors" },
-    { name: "Resources", path: "/admin/resources" },
+    { name: "Excos Upload", path: "/admin/dashboard", icon: <FiUsers/> },
+    { name: "Adverts", path: "/admin/adverts", icon: <FcAdvertising/> },
+    { name: "Events", path: "/admin/events", icon: <FiVideo/> },
+    { name: "Sponsors", path: "/admin/sponsors", icon: <FaRegSmile/> },
+    { name: "Resources", path: "/admin/resources", icon: <IoBookOutline/> },
   ];
   return (
     <div className="w-full h-full rounded-tr-2xl rounded-br-2xl relative overflow-hidden">
       <DynamicBackground imageUrl={ConstructionTape} />
-      <div className="flex flex-col w-full h-full relative bg-[#0000008c]">
-        <div className="w-full flex justify-center">
-          <img src="" alt="" />
+      <div className="flex flex-col w-full h-full justify-between relative bg-[#0000008c]">
+        <Toaster position="top-center" reverseOrder={false} />
+        <div className="w-full h-[10%] flex justify-center">
+          <img src={TesaLogo} alt="" onClick={handleClick} className="cursor-pointer" />
         </div>
-        <div className="w-full flex justify-center flex-col">
+        <div className="w-full h-[70%] flex justify-around gap-2 flex-col">
           {sideBarLinks.map((link, index) => (
-            <NavLink
-              key={index}
-              to={link.path}
-              className={({ isActive }) =>
-                "text-white text-xl font-bold py-2 px-4 hover:bg-[#0000008c] rounded-lg"
-              }
-            >
-              {({ isActive }) => (
-                <motion.div
-                  animate={{
-                    backgroundColor: isActive ? "#392B1A" : "rgba(0,0,0,0)",
-                    color: isActive ? "#fff" : "#000",
-                    borderBottom: isActive
-                      ? "2px solid #007AFF"
-                      : "0px solid transparent",
-                  }}
-                  whileHover={{
-                    backgroundColor: "#392B1A",
-                    color: "#fff",
-                  }}
-                  transition={{ duration: 0 }}
-                  className="w-full h-full flex pr-4 md:pr-0 md:justify-center justify-end items-center duration-500 ease-in-out relative before:absolute before:right-0 before:w-full before:bottom-0 before:h-0 hover:before:h-[2px] before:bg-[#007AFF]"
-                >
-                  <span
-                    className="text-[24px] font-medium"
-                    style={{ fontFamily: '"Aldrich", sans-serif' }}
-                  >
+            <NavLink to={link.path} key={index}>
+              {({isActive}) =>{
+                return(
+                  <motion.div className={`w-full flex px-4 md:px-6 lg:px-8 flex-col gap-1 h-[60px] duration-500 ease-in-out transition-all hover:text-[white] text-sm ${isActive ? "text-[white]" : "text-[#ffffff71]"}`}>
+                    <span>
+                      {link.icon}
+                    </span>
                     {link.name}
-                  </span>
-                </motion.div>
-              )}
+                  </motion.div>
+                )
+              }}
             </NavLink>
           ))}
         </div>
-        <div className="w-full flex justify-center">
-          <NavLink></NavLink>
+        <div className="w-full h-[10%] flex px-4 md:px-6 lg:px-8">
+          <span  className='hover:text-red-600 cursor-pointer text-red-700 duration-500 ease-in-out' onClick={signout}>Logout</span>
         </div>
       </div>
     </div>
