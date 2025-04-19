@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const ONE_DAY_MS = 10000;
+  const ONE_DAY_MS = 24 * 60 * 60* 1000;
 
   const signin = async (token) => {
     const expiration = Date.now() + ONE_DAY_MS;
