@@ -43,7 +43,7 @@ export const SignIn = () => {
       const data = await response.json();
       await signin(data);
       toast.success("Login successful");
-      navigate("/admin");
+      navigate("/admin/dashboard");
       setLoader(false);
       setAdminDetails({ loginUsername: "", loginPassword: "" });
     } catch (error) {
