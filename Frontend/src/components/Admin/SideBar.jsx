@@ -39,7 +39,7 @@ export const SideBar = () => {
             <NavLink to={link.path} key={index}>
               {({isActive}) =>{
                 return(
-                  <motion.div className={`w-full relative before:absolute hover:before:bg-green-500 transition-all before:h-full before:w-[2px] before:right-4 before:rounded-full flex px-4 md:px-6 lg:px-8 flex-col gap-1 h-[60px] duration-500 ease-in-out transition-all hover:text-[white] text-sm ${isActive ? "text-[white] before:bg-green-500" : "text-[#ffffff71] before:bg-green-700"}`}>
+                  <motion.div className={`w-full relative before:absolute hover:before:bg-green-500 before:h-full before:w-[2px] before:right-4 before:rounded-full flex px-4 md:px-6 lg:px-8 flex-col gap-1 h-[60px] duration-500 ease-in-out transition-all hover:text-[white] text-sm ${isActive ? "text-[white] before:bg-green-500" : "text-[#ffffff71] before:bg-green-700"}`}>
                     <span>
                       {link.icon}
                     </span>
