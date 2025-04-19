@@ -14,10 +14,10 @@ export const AdminLayout = () => {
       <div className='fixed h-[10%] top-0 w-full md:hidden'>
             <Navbar/>
         </div>
-        <div className='w-[200px] md:w-[20%] h-full absolute md:relative top-0'>
+        <div className='w-[200px] md:w-[20%] lg:w-[15%] h-full absolute md:relative top-0'>
             <SideBar/>
         </div>
-        <main className='h-[90%] md:h-full w-full md:w-[80%]'>
+        <main className='h-[90%] md:h-full w-full md:w-[80%] lg:w-[75%]'>
             <Outlet/>
         </main>
       </div>
