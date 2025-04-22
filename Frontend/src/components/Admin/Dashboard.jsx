@@ -1,8 +1,9 @@
 import React from 'react'
 import TESA from "../../assets/images/logo.png"
+import { Field } from './Field'
 
 export const Dashboard = () => {
-  const titles = ['Name', 'Position', 'Level', 'Email', 'Phone no', 'Twitte', 'Instagram','Image']
+  const titles = ['Name', 'Position', 'Level', 'Email', 'Phone no', 'Twitter', 'Instagram','Image']
   return (
     <div className='w-full h-full relative'>
       <div className='absolute top-0 w-full h-full opacity-15' style={{ backgroundImage: `url(${TESA})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}></div>
@@ -16,7 +17,12 @@ export const Dashboard = () => {
             ))
           }
         </div>
-        <div className='w-full flex h-max'>klklflkefkl</div>
+        <div className='w-full flex flex-col h-max before:absolute relative before:right-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-[#007AFF] before:to-[#FA8F21]
+        after:absolute after:left-0 after:w-[1px] after:h-full after:bg-gradient-to-b after:from-[#007AFF] after:to-[#FA8F21]
+        '>
+          <Field />
+          {/* <span className='w-[100px] overflow-hidden text-ellipsis whitespace-nowrap'>kennedy ifeadi chukwunwike</span> */}
+        </div>
       </div>
     </div>
   )
