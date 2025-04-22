@@ -2,6 +2,7 @@ import cloudinary from "../../cloudinary/cloudinary.js"
 import advertModel from "../models/adverts.model.js";
 
 
+
 export const postAdvert =async (req,res) => {
     const {name,description,image} = req.body
 
