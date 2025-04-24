@@ -56,7 +56,7 @@ export const Executives = () => {
           Meet the Executives
         </h1>
       </div>
-      <div className='grid grid-cols-2 md:grid-cols-3 w-full md:px-6 h-max gap-4 border'>
+      <div className='grid grid-cols-2 md:grid-cols-3 w-full md:px-6 h-max gap-4'>
         {
           executives.length > 0 ? (
             executives.map((card, index) => (

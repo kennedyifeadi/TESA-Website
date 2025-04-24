@@ -8,6 +8,7 @@ import { AdminEvents } from "../components/Admin/Events";
 import { AdminSponsors } from "../components/Admin/Sponsors";
 import { AdminResources } from "../components/Admin/Resources";
 import { SignIn } from "../pages/SignIn";
+import { ForgotPassword } from "../pages/ForgotPassword";
 
 export const AppWrapper = () => {
     const location = useLocation();
@@ -26,13 +27,14 @@ export const AppWrapper = () => {
               </ProtectedRoute>
             }
           >
-            <Route path="" element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="events" element={<AdminEvents />} />
             <Route path="sponsors" element={<AdminSponsors />} />
             <Route path="resources" element={<AdminResources />} />
             <Route path="adverts" element={<Adverts />} />
             <Route path="*" element={<SignIn />} />
           </Route>
+            <Route path="/admin/forgotpassword" element={<ForgotPassword />} />
             <Route path="/admin/signIn" element={<SignIn />} />
         </Routes>
       </div>
