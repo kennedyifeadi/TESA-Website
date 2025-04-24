@@ -24,6 +24,9 @@ export const Field = ({ name, position, level, email, phone, twitter, instagram,
 
   useEffect(() => {
     console.log(editMode);
+    if (editMode && inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
   }, [editMode]);
 
   return (
