@@ -3,7 +3,19 @@ import { FaRegEdit } from "react-icons/fa";
 import { LuCloudUpload } from "react-icons/lu";
 
 export const Field = ({ name, position, level, email, phone, twitter, instagram, image, description, subtext, date, time, category }) => {
-  const fieldDetails = [name, position || description || subtext, level, email || date, phone || time, twitter || category, instagram, image];
+  const rawFields = [
+    { value: name, type: 'text' },
+    { value: position || description || subtext, type: 'text' },
+    { value: level, type: 'text' },
+    { value: email || date, type: 'text' },
+    { value: phone || time, type: 'text' },
+    { value: twitter || category, type: 'text' },
+    { value: instagram, type: 'text' },
+    { value: image, type: 'file' }
+  ];
+
+  const displayFields = rawFields.filter(field => field.value); // filter only truthy fields
+
   const [editMode, setEditMode] = useState(false);
   const inputRefs = useRef([]);
 
@@ -23,7 +35,6 @@ export const Field = ({ name, position, level, email, phone, twitter, instagram,
   };
 
   useEffect(() => {
-    console.log(editMode);
     if (editMode && inputRefs.current[0]) {
       inputRefs.current[0].focus();
     }
@@ -33,8 +44,8 @@ export const Field = ({ name, position, level, email, phone, twitter, instagram,
     <div className='w-full h-[50px] flex items-center before:absolute relative before:bottom-0 before:w-full before:h-[1px] before:bg-gradient-to-r before:from-[#007AFF] before:to-[#FA8F21]'>
       <div className='w-full h-full flex gap-2'>
         {
-          fieldDetails.map((details, index) => {
-            if (index === fieldDetails.length - 1) {
+          displayFields.map((field, index) => {
+            if (field.type === 'file') {
               return (
                 <div key={index} className="flex items-center relative flex-1 min-w-[0px]">
                   <input
@@ -61,7 +72,7 @@ export const Field = ({ name, position, level, email, phone, twitter, instagram,
                 type="text"
                 ref={(el) => inputRefs.current[index] = el}
                 disabled={!editMode}
-                placeholder={details}
+                placeholder={field.value}
                 className='text-black flex-1 min-w-0 px-4 text-ellipsis whitespace-nowrap overflow-hidden'
                 onKeyDown={(e) => handleKeyDown(e, index)}
               />

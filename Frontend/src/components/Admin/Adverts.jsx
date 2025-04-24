@@ -1,5 +1,6 @@
 import React from 'react'
 import TESA from "../../assets/images/logo.png"
+import { Field } from './Field'
 
 
 export const Adverts = () => {
@@ -17,7 +18,11 @@ export const Adverts = () => {
             ))
           }
         </div>
-        <div className='w-full flex h-max'>klklflkefkl</div>
+        <div className='w-full flex h-max'>
+          {
+            <Field name={"Name"} description={"Description"} image={"Image"}/>
+          }
+        </div>
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ export const Dashboard = () => {
         '>
           {
             positions.map((position, index) => (
-              <Field name={"Name"} email={"Email"} position={position} twitter={"Twitter"} instagram={"Instagram"} level={"Level"} phone={"Phone no"}/>
+              <Field name={"Name"} email={"Email"} position={position} twitter={"Twitter"} instagram={"Instagram"} level={"Level"} phone={"Phone no"} image={true}/>
             ))
           }
         </div>
