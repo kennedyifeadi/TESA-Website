@@ -7,6 +7,8 @@ import adminRouter from "./src/routes/admins/routes.js"
 import userRouter from "./src/routes/users/routes.js"
 import session from "express-session"
 import authAdmin from "./src/auth/admin.auth.js"
+import swaggerjsdoc from "swagger-jsdoc"
+import swaggerUi from "swagger-ui-express"
 dotenv.config()
 app.use(express.json({limit:"50mb"}))
 app.use(express.urlencoded({extended: true, limit:"50mb"}))
@@ -28,6 +30,29 @@ mongoose.connect(process.env.MONGO_STRING)
 }).catch((err) => {
     console.error(err);
 });
+
+
+const options = {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: 'Tesa Website API',
+        version: '1.0.0',
+        description: 'API documentation',
+      },
+      servers: [
+        {
+          url: 'http://localhost:4000',
+        },
+      ],
+    },
+    apis: ['./src/routes/admins/*.js','./src/routes/users/*.js'],
+  };
+
+  const specs = swaggerjsdoc(options)
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+  
 
 import executiveModel from "./src/models/executive.model.js"
 import advertModel from "./src/models/adverts.model.js"

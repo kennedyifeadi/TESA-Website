@@ -10,7 +10,40 @@ import authAdmin from "../../auth/admin.auth.js"
 const adminRouter = express.Router()
 
 
-
+/**
+ * @swagger
+ * /admin/login:
+ *  post:
+ *      summary: logs admin in
+ *      tags: [admin]
+ *      requestBody:
+ *          required: true
+ *          content: 
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          loginUsername:
+ *                              type: string
+ *                          loginPassword:
+ *                              type: string
+ *                          example: 
+ *                              email: "admin@gmail.com"
+ *                              password : "password123"
+ *  responses:
+ *      200:
+ *          description: successfully log in
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          token:
+ *                              type:string
+ *                          user:
+ *                              $ref: '#/components/schemas/User'
+ * 
+ */
 adminRouter.post("/login",login)
 adminRouter.post("/signup", signup)
 
