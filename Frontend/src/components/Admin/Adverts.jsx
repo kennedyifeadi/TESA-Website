@@ -40,7 +40,7 @@ export const Adverts = () => {
                 key={advert.id}
                 name={advert.name} 
                 descrption={advert.description} 
-                endpoint={"uploadAdverts"} 
+                endpoint={"postAdvert"} 
                 image={advert.image}
               />
             ))
