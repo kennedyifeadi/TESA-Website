@@ -97,7 +97,7 @@ export const AdminEvents = () => {
                   date={event.date} 
                   time={event.time} 
                   category={event.category}
-                  endpoint={"uploadEvents"}
+                  endpoint={"postEvent"}
                 />
               ))
             ) : (
