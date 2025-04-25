@@ -20,7 +20,7 @@ export const Adverts = () => {
         </div>
         <div className='w-full flex h-max'>
           {
-            <Field name={"Name"} description={"Description"} image={"Image"}/>
+            <Field name={"Name"} descrption={"Description"} endpoint={"uploadAdverts"} image={true}/>
           }
         </div>
       </div>
