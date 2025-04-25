@@ -109,7 +109,7 @@ export const AdminEvents = () => {
                   subtext={event.subtext} 
                   date={event.date}
                   category={event.category}
-                  endpoint={"uploadPastEvents"}
+                  endpoint={"postEvent"}
                 />
               ))
             )
