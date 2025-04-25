@@ -53,7 +53,11 @@ import executiveModel from "../models/executive.model.js"
 
     } catch (error) {
        console.log(error) 
-       res.json({error:"an error occured"})
+       res.status(404).json({
+        success:false,
+        message:"couldn't post exco",
+        data:error.message
+       })
        return
     }
 }
