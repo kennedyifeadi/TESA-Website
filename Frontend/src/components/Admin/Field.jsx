@@ -7,12 +7,12 @@ import { PostFunction } from '../../Utils/PostFunction';
 export const Field = ({ name, position, level, email, phone, twitter, instagram, image, descrption, subtext, date, time, category, text, endpoint }) => {
   const rawFields = [
     { key: 'name', label: 'Name', value: name },
-    { key: 'position', label: 'Position', value: position || descrption },
+    { key: 'position', label: 'Position', value: position || descrption || subtext  },
     { key: 'level', label: 'Level', value: level || date },
     { key: 'email', label: 'Email', value: email || time },
     { key: 'phone', label: 'Phone', value: phone || category },
     { key: 'twitter', label: 'Twitter', value: twitter || text },
-    { key: 'instagram', label: 'Instagram', value: instagram || subtext },
+    { key: 'instagram', label: 'Instagram', value: instagram },
     { key: 'image', label: 'Image', value: image, isImage: true }
   ];
 

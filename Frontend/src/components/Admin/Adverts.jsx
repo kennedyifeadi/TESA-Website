@@ -33,7 +33,9 @@ export const Adverts = () => {
           }
         </div>
         
-        <div className='w-full flex flex-col gap-4'>
+        <div className='w-full flex flex-col h-max before:absolute relative before:right-0 before:w-[1px] before:h-full before:bg-gradient-to-b before:from-[#007AFF] before:to-[#FA8F21]
+        after:absolute after:left-0 after:w-[1px] after:h-full after:bg-gradient-to-b after:from-[#007AFF] after:to-[#FA8F21]
+        '>
           {
             adverts.map((advert) => (
               <Field 
