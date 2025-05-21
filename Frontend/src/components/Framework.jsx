@@ -52,7 +52,7 @@ export const Framework = () => {
             <img
               src={item.image}
               alt=""
-              className={`${item.id === 5 ? 'w-full h-full object-cover' : 'w-[60%]'}`}
+              className={`${item.id === 4 ? 'w-full h-full object-cover' : 'w-full h-full object-contain rounded-md'}`}
             />
           </motion.div>
         ))}
