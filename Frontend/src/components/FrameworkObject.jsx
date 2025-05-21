@@ -1,40 +1,48 @@
-import electricPole from "../assets/images/electricity-transmission-WdNBYQuICi.png"
 import tesaLogo from "../assets/images/logo.png"
+import Agric from "../assets/images/Agric.png"
+import Auto from "../assets/images/Auto.png"
+import Civil from "../assets/images/Civil.png"
+import Elect from "../assets/images/SEEESUI.jpg"
+import Food from "../assets/images/Food.jpeg"
+import IESA from "../assets/images/IESA.png"
+import NIMECHE from "../assets/images/NIMECHE.png"
+import SPEUI from "../assets/images/SPEUI.png"
+import Wood from "../assets/images/Wood.png"
 export const FrameworkObject =[
     {
         id: 1,
-        image: electricPole
+        image: Food
     },
     {
         id: 2,
-        image: electricPole
+        image: Auto
     },
     {
         id: 3,
-        image: electricPole
+        image: Civil
     },
     {
         id: 4,
-        image: electricPole
+        image: Elect
     },
     {
         id: 5,
-        image: tesaLogo
+        image: Agric
     },
     {
         id: 6,
-        image: electricPole
+        image: IESA
     },
     {
         id: 7,
-        image: electricPole
+        image: NIMECHE
     },
     {
         id: 8,
-        image: electricPole
+        image: SPEUI
     },
     {
         id: 9,
-        image: electricPole
+        image: Wood
     },
 ]
