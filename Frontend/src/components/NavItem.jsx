@@ -6,7 +6,7 @@ export const NavItem = ({ NavUrl, title, ids }) => {
   return (
     <NavLink 
       to={NavUrl} 
-      className="h-full flex items-center relative"
+      className="h-full flex items-center relative" 
     >
       {({ isActive }) => (
         <div className={`h-full flex items-center relative md:hover:bg-[#392b1a] duration-500 ease-in-out px-4 ${isActive ? 'md:bg-[#392b1a]' : ''}`}>
