@@ -7,21 +7,21 @@ export const NavItems = [
     {
         id: 2,
         NavUrl: "/updates",
-        Title: "updates"
+        Title: "Updates"
     },
     {
         id: 3,
         NavUrl: "/resources",
-        Title: "resources"
+        Title: "Resources"
     },
     {
         id: 4,
         NavUrl: "/payments",
-        Title: "payment"
+        Title: "Payment"
     },
     {
         id: 5,
         NavUrl: "/contact",
-        Title: "contact"
+        Title: "Contact"
     }
 ]
