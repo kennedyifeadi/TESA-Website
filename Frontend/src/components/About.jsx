@@ -2,6 +2,7 @@ import React from 'react';
 import supportTesa from "../assets/icons/hand-coin-fill.png";
 import { Button } from './UI/Button';
 import { Award, Code, Compass, Lightbulb, LucideAward, Rocket, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const About = () => {
   return (
@@ -103,6 +104,8 @@ export const About = () => {
         </div>
         
         {/* Support Button */}
+            <Link to="/sponsorship#become-sponsor" >
+
         <Button 
           title={"Support TESA"} 
           width={"20px"} 
@@ -112,6 +115,7 @@ export const About = () => {
           hoverIcon={supportTesa}
           className="hover:shadow-lg transition-all duration-300"
         />
+        </Link>
       </div>
     </div>
   );

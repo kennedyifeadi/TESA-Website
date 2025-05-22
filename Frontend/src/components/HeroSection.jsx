@@ -9,6 +9,7 @@ import playbtn from "../assets/icons/Symbol.png";
 import { Button } from "./UI/Button";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   const [startAnimation, setStartAnimation] = useState(false);
@@ -78,6 +79,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="w-full flex justify-start"
           >
+            <Link to="/sponsorship#become-sponsor" >
             <Button
               color={"#392B1A"}
               width={"20px"}
@@ -86,6 +88,7 @@ export const HeroSection = () => {
               hoverColor={"#007AFF"}
               hoverIcon={supportHover}
             />
+            </Link>
           </motion.div>
         </div>
 
@@ -211,6 +214,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="w-full flex justify-center mb-4"
           >
+            <Link to="/sponsorship#become-sponsor" >
             <Button
               color={"#392B1A"}
               width={"20px"}
@@ -219,6 +223,7 @@ export const HeroSection = () => {
               hoverColor={"#007AFF"}
               hoverIcon={supportHover}
             />
+            </Link>
           </motion.div>
         </div>
       </div>
