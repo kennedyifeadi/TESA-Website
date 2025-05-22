@@ -20,13 +20,13 @@ export const PageLoading = () => {
               clearInterval(interval);
               return 100;
             }
-            return oldProgress + 2; 
+            return oldProgress + 3; 
           });
         }, 100);
 
         const timeout = setTimeout(() => {
             setIsLoading(false);
-          }, 5000); 
+          }, 3000); 
       
           return () => {
             clearInterval(interval);
