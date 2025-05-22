@@ -53,7 +53,7 @@ export const NavBar = () => {
 
   return (
     <div className={`w-full h-16 fixed top-0 left-0 z-50 flex items-center transition-all duration-300 ${
-      scrolled ? 'bg-white shadow-md' : 'md:bg-transparent bg-white '
+      scrolled ? 'bg-white shadow-md' : menuOpen ? 'bg-white' : 'bg-transparent'
     }`}>
       <div className="w-full h-full max-w-7xl mx-auto px-4 flex items-center justify-between relative">
         
