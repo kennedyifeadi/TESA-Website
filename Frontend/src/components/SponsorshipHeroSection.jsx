@@ -61,7 +61,7 @@ const FloatingShape = ({ delay, duration, className }) => (
   />
 );
 
-export const SponsorshipHeroSection = () => {
+export const SponsorshipHeroSection = ({ onScrollClick }) => {
   return (
     <div className='w-full min-h-screen flex items-center justify-center px-4 md:px-8 relative overflow-hidden py-12 md:py-0'>
       {/* Main Background */}
@@ -141,7 +141,8 @@ export const SponsorshipHeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 sm:px-6 sm:py-2 bg-gradient-to-r from-[#007AFF] to-[#007AFF] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={onScrollClick}
+              className="px-4 py-2 cursor-pointer sm:px-6 sm:py-2 bg-gradient-to-r from-[#007AFF] to-[#007AFF] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               style={{ fontFamily: '"Poppins", sans-serif' }}
             >
               Become a Sponsor
