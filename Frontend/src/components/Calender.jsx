@@ -49,7 +49,7 @@ export const Calendar = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 "
+              className="text-3xl md:text-4xl lg:text-7xl font-bold text-gray-900  leading-tight"
             >
               Academic
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Updates</span>

@@ -14,7 +14,7 @@ const DynamicBackground = ({ imageUrl, className = "" }) => {
         alt="Background" 
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div> */}
     </div>
   );
 };
@@ -31,12 +31,12 @@ const StatCard = ({ number, label, delay }) => (
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.6, delay: delay + 0.2, type: "spring", bounce: 0.4 }}
-      className="text-xl md:text-3xl font-bold text-white mb-1"
+      className="text-xl md:text-3xl font-bold text-black mb-1"
       style={{ fontFamily: '"Aldrich", sans-serif' }}
     >
       {number}
     </motion.div>
-    <div className="text-xs md:text-sm text-gray-200" style={{ fontFamily: '"Poppins", sans-serif' }}>
+    <div className="text-xs md:text-sm text-black/50" style={{ fontFamily: '"Poppins", sans-serif' }}>
       {label}
     </div>
   </motion.div>
@@ -83,10 +83,10 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center px-2 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+            className="inline-flex items-center px-2 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow"
           >
             <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-            <span className="text-white text-[10px] font-medium" style={{ fontFamily: '"Poppins", sans-serif' }}>
+            <span className="text-black text-[10px] font-medium" style={{ fontFamily: '"Poppins", sans-serif' }}>
               Partnership Opportunities Open
             </span>
           </motion.div>
@@ -99,7 +99,7 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
             className="space-y-4"
           >
             <h1 
-  className='text-4xl md:text-4xl lg:text-5xl font-bold text-white leading-tight'
+  className='text-4xl md:text-4xl lg:text-5xl font-bold text-black leading-tight'
   style={{ fontFamily: '"Aldrich", sans-serif' }}
 >
   <span className="block">
@@ -123,7 +123,7 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className='text-base sm:text-lg md:text-md text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed'
+              className='text-base sm:text-lg md:text-md text-black max-w-2xl mx-auto lg:mx-0 leading-relaxed'
               style={{ fontFamily: '"Poppins", sans-serif' }}
             >
               Join us in shaping the future of technology and innovation. 
@@ -151,7 +151,7 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 sm:px-6 sm:py-2 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border border-white/30 hover:bg-white/20 transition-all duration-300"
+              className="px-4 py-2 sm:px-6 sm:py-2 bg-white backdrop-blur-sm text-black shadow font-semibold rounded-full border border-white/30 hover:bg-white/20 transition-all duration-300"
               style={{ fontFamily: '"Poppins", sans-serif' }}
             >
               View Packages
@@ -223,17 +223,17 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 2.5 }}
-        className="absolute md:bottom-8 bottom-3 left-1/2 transform -translate-x-1/2 text-white text-center"
+        className="absolute md:bottom-8 bottom-3 left-1/2 transform -translate-x-1/2 text-black text-center"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="md:w-6 w-4 h-6 md:h-10 border-2 border-white/50 rounded-full mx-auto mb-2 flex justify-center"
+          className="md:w-6 w-4 h-6 md:h-10 border-2 border-black/50 rounded-full mx-auto mb-2 flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 md:h-3 h-1 bg-white rounded-full md:mt-2"
+            className="w-1 md:h-3 h-1 bg-black rounded-full md:mt-2"
           />
         </motion.div>
         <span className="md:text-sm text-[10px]" style={{ fontFamily: '"Poppins", sans-serif' }}>Scroll to explore</span>

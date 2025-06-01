@@ -21,7 +21,7 @@ export const NavItems = [
     },
     {
         id: 5,
-        NavUrl: "/contact",
+        NavUrl: "mailto:techitesui@gmail.com",
         Title: "Contact"
     }
 ]
