@@ -1,7 +1,6 @@
 import React from "react";
 import { DynamicBackground } from "./DynamicBackground";
 import eventBG from "../assets/images/eventBG.jpg";
-import subtract from "../assets/images/galleryBG.jpg";
 import {
   motion
 } from "framer-motion";
