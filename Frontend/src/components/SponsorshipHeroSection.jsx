@@ -154,7 +154,9 @@ export const SponsorshipHeroSection = ({ onScrollClick }) => {
               className="px-4 py-2 sm:px-6 sm:py-2 bg-white backdrop-blur-sm text-black shadow font-semibold rounded-full border border-white/30 hover:bg-white/20 transition-all duration-300"
               style={{ fontFamily: '"Poppins", sans-serif' }}
             >
-              View Packages
+              <a href="/pdf/TESA-PARTNERSHIP-PROPOSAL.pdf" download="TESA-Proposal.pdf" className="flex items-center gap-2 h-full w-full">
+                Download Proposal
+              </a>
             </motion.button>
           </motion.div>
 

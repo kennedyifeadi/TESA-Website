@@ -67,9 +67,7 @@ export const HeroSection = () => {
             className="mb-4"
           >
             <p className="text-[#392B1A] tracking-[1px] text-[15px]" style={{ fontFamily: '"Poppins", sans-serif' }}>
-              Welcome to the hub of future tech leaders and engineering pioneers.
-              A dynamic world where creativity meets technology, and innovation knows no bounds.
-              Join us in shaping the future, one breakthrough at a time.
+              TESA, University of Ibadan, unites over 3,000 students across nine departments in the Faculty of Technology. We champion excellence in academics, innovation, leadership, and impact.
             </p>
           </motion.div>
 

@@ -65,7 +65,7 @@ const BenefitCard = ({ icon: Icon, title, description, delay, index }) => {
           animate={{ opacity: isHovered ? 0.05 : 0 }}
           className="absolute inset-0 bg-[#392b1a] rounded-2xl"
         />
-        
+
         {/* Icon container */}
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
@@ -73,7 +73,7 @@ const BenefitCard = ({ icon: Icon, title, description, delay, index }) => {
         >
           <Icon className="w-8 h-8" />
         </motion.div>
-        
+
         {/* Content */}
         <div className="relative z-10 text-center">
           <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
@@ -83,7 +83,7 @@ const BenefitCard = ({ icon: Icon, title, description, delay, index }) => {
             {description}
           </p>
         </div>
-        
+
         {/* Decorative element */}
         <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-50 group-hover:scale-110 transition-transform duration-300" />
       </div>
@@ -154,7 +154,7 @@ export const WhySponsor = () => {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -190,7 +190,7 @@ export const WhySponsor = () => {
                 Sponsor Us?
               </span>
             </h1>
-            
+
             {/* Decorative line */}
             <motion.div
               initial={{ width: 0 }}
@@ -211,7 +211,7 @@ export const WhySponsor = () => {
           >
             Empowering the Next Generation of Innovators
           </motion.p>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -240,7 +240,7 @@ export const WhySponsor = () => {
           >
             Sponsorship Benefits
           </motion.h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <BenefitCard
@@ -264,7 +264,7 @@ export const WhySponsor = () => {
           className="relative"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Left Content */}
             <div className="space-y-6">
               <motion.h2
@@ -276,7 +276,7 @@ export const WhySponsor = () => {
               >
                 Your Impact in Action
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -313,20 +313,22 @@ export const WhySponsor = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl" />
                 <div className="absolute top-4 right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
                 <div className="absolute bottom-4 left-4 w-24 h-24 bg-white/10 rounded-full blur-xl" />
-                
+
                 {/* Content */}
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold mb-6">Ready to Partner?</h3>
                   <p className="text-white/90 mb-8 leading-relaxed">
                     Join our community of forward-thinking sponsors and help shape the future of technology education.
                   </p>
-                  
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300"
                   >
-                    Get Sponsorship Package
+                    <a href="/pdf/TESA-PARTNERSHIP-PROPOSAL.pdf" download="TESA-Proposal.pdf" className="flex items-center gap-2 h-full w-full">
+                      Download Proposal
+                    </a>
                   </motion.button>
                 </div>
               </div>
