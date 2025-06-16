@@ -16,9 +16,9 @@ import gallery11 from "../assets/images/Tesa11.jpg";
 import gallery12 from "../assets/images/Tesa12.jpg";
 import gallery13 from "../assets/images/Tesa13.jpg";
 import gallery14 from "../assets/images/Tesa14.jpg";
-import gallery15 from "../assets/images/Tesa15.jpg";
-import gallery16 from "../assets/images/Tesa16.jpg";
-import gallery17 from "../assets/images/Tesa17.jpg";
+import gallery15 from "../assets/images/TESA15.jpg";
+import gallery16 from "../assets/images/TESA16.jpg";
+import gallery17 from "../assets/images/TESA17.jpg";
 
 // Lazy Image Component
 const LazyImage = ({ src, alt, className, index }) => {
