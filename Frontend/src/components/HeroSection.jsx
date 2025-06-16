@@ -225,23 +225,6 @@ export const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Play Button */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={startAnimation ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.8 }}
-        className={`absolute hidden md:flex items-center justify-center text-white gap-2 cursor-pointer z-10 transition-all bottom-2 h-8 duration-500 ease-in-out rounded-full bg-[#007AFF] ${
-          isHovered ? "w-24" : "w-16"
-        }`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <img src={playbtn} alt="" className="w-3 transition-all duration-500" />
-        <span className={`transition-opacity duration-1000 ${isHovered ? "opacity-100 w-auto" : "opacity-0 w-0"}`}>
-          play
-        </span>
-      </motion.div>
     </div>
   );
 };
