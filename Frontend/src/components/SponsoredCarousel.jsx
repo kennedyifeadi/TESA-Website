@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { SponsoredCard } from "./UI/SponsoredCard";
-import advert1 from "../assets/images/advert1.png";
-import advert2 from "../assets/images/advert2.png";
+import advert1 from "../assets/images/ERCAS.webp";
+import advert2 from "../assets/images/foodbolt2.png";
+import advert3 from "../assets/images/Kolomoni-MFB.webp";
+import advert4 from "../assets/images/johnvents_cover.jpeg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination} from 'swiper/modules';
 
-const images = [advert1, advert2, advert1, advert2];
+const images = [advert1, advert2, advert3, advert4];
 
 export const Carousel = () => {
  

@@ -18,32 +18,8 @@ export const Executives = () => {
 
   useEffect(() => {
     const fetchExecutives = async () => {
-      try {
-        const storedExecutives = localStorage.getItem("executives");
-        const lastUpdated = localStorage.getItem("executives_last_updated");
-
-        const now = new Date().getTime();
-        const twentyFourHours = 24 * 60 * 60 * 1000; 
-
-        if (!storedExecutives || storedExecutives === "[]" || !lastUpdated || now - lastUpdated > twentyFourHours) {
-          const data = await getExecutives();
-          setExecutives(data);
-          localStorage.setItem("executives", JSON.stringify(data));
-          localStorage.setItem("executives_last_updated", now.toString());
-        } else {
-          const parsedExecutives = JSON.parse(storedExecutives);
-          if (Array.isArray(parsedExecutives) && parsedExecutives.length > 0) {
-            setExecutives(parsedExecutives);
-          } else {
-            const data = await getExecutives();
-            setExecutives(data);
-            localStorage.setItem("executives", JSON.stringify(data));
-            localStorage.setItem("executives_last_updated", now.toString());
-          }
-        }
-      } catch (error) {
-        console.error("Error processing executives:", error);
-      }
+      const execs = await getExecutives();
+      setExecutives(execs);
     };
 
     fetchExecutives();

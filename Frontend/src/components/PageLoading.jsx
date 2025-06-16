@@ -20,13 +20,13 @@ export const PageLoading = () => {
               clearInterval(interval);
               return 100;
             }
-            return oldProgress + 3; 
+            return oldProgress + 10; 
           });
         }, 100);
 
         const timeout = setTimeout(() => {
             setIsLoading(false);
-          }, 3000); 
+          }, 1200); 
       
           return () => {
             clearInterval(interval);
@@ -42,7 +42,7 @@ export const PageLoading = () => {
         <SplitText
   text="TESA Loading"
   className="text-2xl md:text-4xl font-semibold loaderScreen text-center mb-5 mt-5"
-  delay={200}
+  // delay={200}
   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
   easing="easeOutCubic"

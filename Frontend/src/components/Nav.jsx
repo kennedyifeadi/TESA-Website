@@ -117,7 +117,7 @@ export const NavBar = () => {
             </AnimatePresence>
           </div>
 
-          <NavLink to="/profile" className="block">
+          <NavLink to="/" className="block">
             <img src={UserIcon} alt="User Profile" className="w-12 h-12 object-contain" />
           </NavLink>
         </div>

@@ -9,9 +9,9 @@ export const NavItem = ({ NavUrl, title, ids }) => {
       className="h-full flex items-center relative" 
     >
       {({ isActive }) => (
-        <div className={`h-full flex items-center relative md:hover:bg-[#392b1a] duration-500 ease-in-out px-4 ${isActive ? 'md:bg-[#392b1a]' : ''}`}>
+        <div className={`h-full flex items-center relative md:hover:bg-[#392b1a] md:hover:text-white duration-500 ease-in-out px-4 ${isActive ? 'md:bg-[#392b1a]' : ''}`}>
           <span
-            className={`text-lg md:text-2xl md:hover:text-white duration-500 ease-in-out font-medium ${isActive ? 'text-white' : ''}`}
+            className={`text-lg md:text-2xl duration-500 ease-in-out font-medium ${isActive ? 'text-white' : ''}`}
             style={{ fontFamily: '"Aldrich", sans-serif' }}
           >
             {title}
