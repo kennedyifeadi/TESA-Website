@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Events } from './Events'
 import { DynamicBackground } from './DynamicBackground'
 import Background from "../assets/images/HeroSectionBackground.jpg";
@@ -7,6 +7,17 @@ import speaker from '../assets/gifs/announcement.gif'
 import search from '../assets/icons/search1.png'
 
 export const Announcements = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    // The search filtering will be handled in the Events component
+  }
+
   return (
     <div className='w-full h-screen flex flex-col px-2 md:px-8 relative pb-14'>
       <DynamicBackground imageUrl={Background}/>
@@ -19,15 +30,27 @@ export const Announcements = () => {
               <span className='font-medium text-white text-2xl md:text-3xl' style={{ fontFamily: '"Aldrich", sans-serif' }}>
                 Announcements
               </span>
-              <span className='relative flex justify-end items-center bg-white h-[30%] mb-1 md:h-[30%] w-full rounded-md'>
-                <img src={search} alt="" className='absolute right-2 w-[15px] h-[15px]' />
-                <input type="text" placeholder='search..' name="search" className='bg-transparent font-medium w-full h-full outline-none rounded-md px-4'  />
-              </span>
+              <form onSubmit={handleSearchSubmit} className='relative flex justify-end items-center bg-white h-[30%] mb-1 md:h-[30%] w-full rounded-md'>
+                <img 
+                  src={search} 
+                  alt="" 
+                  className='absolute right-2 w-[15px] h-[15px] cursor-pointer' 
+                  onClick={handleSearchSubmit}
+                />
+                <input 
+                  type="text" 
+                  placeholder='search..' 
+                  name="search" 
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className='bg-transparent font-medium w-full h-full outline-none rounded-md px-4'  
+                />
+              </form>
             </div>
           </div>
         </div>
         <div className='w-full h-[90%] flex px-2 md:px-6'>
-            <Events/>
+            <Events searchTerm={searchTerm}/>
         </div>
       </div>
     </div>
