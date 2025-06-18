@@ -117,17 +117,17 @@ export const NavBar = () => {
             </AnimatePresence>
           </div>
 
-          <NavLink to="/" className="block">
+          {/* <NavLink to="/" className="block">
             <img src={UserIcon} alt="User Profile" className="w-12 h-12 object-contain" />
-          </NavLink>
+          </NavLink> */}
         </div>
 
         {/* Mobile: Right User Icon */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <NavLink to="/profile" className="block">
             <img src={UserIcon} alt="User Profile" className="w-12 h-12 object-contain" />
           </NavLink>
-        </div>
+        </div> */}
 
         {/* Mobile Menu Dropdown */}
         <AnimatePresence>

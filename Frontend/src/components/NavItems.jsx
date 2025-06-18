@@ -16,7 +16,7 @@ export const NavItems = [
     },
     {
         id: 4,
-        NavUrl: "https://payment.tesaui.org/",
+        NavUrl: "https://pay.tesaui.org/",
         Title: "Payment"
     },
     {

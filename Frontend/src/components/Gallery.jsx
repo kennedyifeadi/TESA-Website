@@ -74,7 +74,7 @@ const LazyImage = ({ src, alt, className, index }) => {
 };
 
 export const Gallery = () => {
-  const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7];
+  const images = [gallery1, gallery16, gallery3, gallery4, gallery5, gallery6, gallery7];
   const images2 = [
     gallery8,
     gallery9,
@@ -84,7 +84,7 @@ export const Gallery = () => {
     gallery13,
     gallery14,
     gallery15,
-    gallery16,
+    gallery2,
     gallery17
   ];
 

@@ -326,7 +326,7 @@ export const WhySponsor = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300"
                   >
-                    <a href="/pdf/TESA-PARTNERSHIP-PROPOSAL.pdf" download="TESA-Proposal.pdf" className="flex items-center gap-2 h-full w-full">
+                    <a href="/pdf/TESA-PARTNERSHIP-PROPOSAL.pdf" download="TESA-Proposal.pdf" className="flex items-center gap-2 h-full w-full justify-center">
                       Download Proposal
                     </a>
                   </motion.button>

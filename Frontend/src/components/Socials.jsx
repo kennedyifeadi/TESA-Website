@@ -1,5 +1,7 @@
 import React from 'react'
+import { FaLinkedin } from "react-icons/fa6";
 import twitterFill from '../assets/icons/twitter-fill.png'
+import { FaLinkedinIn } from "react-icons/fa6";
 import instagramFill from '../assets/icons/icons8-instagram-32 1.png'
 import mailfill from '../assets/icons/mail-open-arrow-up-svgrepo-com 1.png'
 import twitter from '../assets/icons/twitter.png'
@@ -32,16 +34,16 @@ export const Socials = () => {
       link : "https://www.instagram.com/techites_?igsh=djMycDJ2N3FoaDEy"
     },
     {
-      text: "Facebook",
-      icon: facebook,
-      hoverIcon: facebookFill,
+      text: "LinkedIn",
+      icon: <FaLinkedinIn />,
+      hoverIcon: <FaLinkedin />,
       link: "https://www.linkedin.com/company/tesa-ui/"
     },
     {
       text: "Email",
       icon: email,
       hoverIcon: mailfill,
-      link : ""
+      link : "mailto:techitesui@gmail.com"
     },
   ]
   return (
