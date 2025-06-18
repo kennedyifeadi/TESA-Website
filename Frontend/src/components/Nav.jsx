@@ -149,74 +149,84 @@ export const NavBar = () => {
 
         {/* Desktop Right Side (Search + User) */}
         <div className="hidden md:flex items-center gap-4 relative">
-          <div className="relative" ref={desktopSearchRef}>
-            {/* Search Icon (visible when search is not active) */}
-            {!searchClicked && (
-              <button 
-                className="focus:outline-none"
-                onClick={toggleSearch}
-                aria-label="Search"
-              >
-                <img src={SearchIcon} alt="Search" className="w-12 h-12 object-cover" />
-              </button>
-            )}
-
-            {/* Desktop Search Input */}
-            <AnimatePresence>
-              {searchClicked && (
-                <motion.div
-                  initial={{ width: 50, opacity: 0 }}
-                  animate={{ width: 300, opacity: 1 }}
-                  exit={{ width: 50, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="relative"
+          {/* Fixed container for search to maintain layout */}
+          <div className="relative w-12 h-12 flex items-center justify-center">
+            {/* Search container that expands from the center */}
+            <AnimatePresence mode="wait">
+              {!searchClicked ? (
+                <motion.button
+                  key="search-icon"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  className="focus:outline-none w-12 h-12 flex items-center justify-center"
+                  onClick={toggleSearch}
+                  aria-label="Search"
                 >
-                  <input
-                    ref={desktopSearchRef}
-                    type="text"
-                    placeholder="Search for your executives..."
-                    value={searchQuery}
-                    onChange={handleDesktopSearchChange}
-                    className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] bg-white"
-                    autoFocus
-                  />
-                  <img 
-                    src={SearchIcon} 
-                    alt="Search" 
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 object-contain cursor-pointer" 
-                    onClick={() => {
-                      if (searchQuery) {
-                        window.location.href = '#executives';
-                      }
-                    }}
-                  />
-                  
-                  {/* Desktop Search Suggestions */}
-                  {showDesktopSuggestions && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto z-50"
-                    >
-                      {filteredSuggestions.length > 0 ? (
-                        filteredSuggestions.map((suggestion, index) => (
-                          <a
-                            key={index}
-                            href="#executives"
-                            className="block px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 text-gray-700 hover:text-[#007AFF] transition-colors no-underline"
-                            onClick={() => handleSuggestionClick(suggestion)}
-                          >
-                            {suggestion}
-                          </a>
-                        ))
-                      ) : (
-                        <div className="px-4 py-3 text-gray-500 text-center">
-                          No matching options found
-                        </div>
+                  <img src={SearchIcon} alt="Search" className="w-12 h-12 object-cover" />
+                </motion.button>
+              ) : (
+                <motion.div
+                  key="search-input"
+                  initial={{ width: 48, opacity: 0 }}
+                  animate={{ width: 220, opacity: 1 }}
+                  exit={{ width: 48, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2"
+                  style={{ transformOrigin: 'right center' }}
+                >
+                  <div className="relative">
+                    <input
+                      ref={desktopSearchRef}
+                      type="text"
+                      placeholder="Search for your executives..."
+                      value={searchQuery}
+                      onChange={handleDesktopSearchChange}
+                      className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] bg-white"
+                      autoFocus
+                    />
+                    <img 
+                      src={SearchIcon} 
+                      alt="Search" 
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 object-contain cursor-pointer" 
+                      onClick={() => {
+                        if (searchQuery) {
+                          window.location.href = '#executives';
+                        }
+                      }}
+                    />
+                    
+                    {/* Desktop Search Suggestions */}
+                    <AnimatePresence>
+                      {showDesktopSuggestions && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto z-50"
+                        >
+                          {filteredSuggestions.length > 0 ? (
+                            filteredSuggestions.map((suggestion, index) => (
+                              <a
+                                key={index}
+                                href="#executives"
+                                className="block px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 text-gray-700 hover:text-[#007AFF] transition-colors no-underline"
+                                onClick={() => handleSuggestionClick(suggestion)}
+                              >
+                                {suggestion}
+                              </a>
+                            ))
+                          ) : (
+                            <div className="px-4 py-3 text-gray-500 text-center">
+                              No matching options found
+                            </div>
+                          )}
+                        </motion.div>
                       )}
-                    </motion.div>
-                  )}
+                    </AnimatePresence>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
