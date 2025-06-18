@@ -26,7 +26,7 @@ export const Executives = () => {
   }, []);
 
   return (
-    <div className='flex flex-col gap-2 py-10 w-full h-max bg-[#07101B] px-2 md:px-8 relative'>
+    <div className='flex flex-col gap-2 py-10 w-full h-max bg-[#07101B] px-2 md:px-8 relative' id='executives'>
       <div className='w-full mb-10 h-max flex justify-center items-center'>
         <h1 className='text-white font-semibold w-full text-center text-3xl md:text-5xl h-full justify-center items-center' style={{ fontFamily: '"Aldrich", sans-serif' }}>
           Meet the Executives

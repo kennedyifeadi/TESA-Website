@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from "react-router-dom";
 import TesaLogo from "../assets/images/logo.png";
 import notification from "../assets/icons/notif.png";
@@ -14,6 +14,26 @@ export const NavBar = () => {
   const [searchClicked, setSearchClicked] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [mobileSearchQuery, setMobileSearchQuery] = useState('');
+  const [showDesktopSuggestions, setShowDesktopSuggestions] = useState(false);
+  const [showMobileSuggestions, setShowMobileSuggestions] = useState(false);
+  
+  const desktopSearchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
+
+  // Search options
+  const searchOptions = [
+    "Who is the current president",
+    "Who is the vice president", 
+    "Who is the general secretary",
+    "Who is the assistant general secretary",
+    "Who is the public relation officer",
+    "Who is the sport director",
+    "Who is the welfare director",
+    "Who is the treasurer",
+    "Who is the financial secretary"
+  ];
 
   // Handle scroll-based background
   useEffect(() => {
@@ -32,12 +52,16 @@ export const NavBar = () => {
       if (dropdown && !dropdown.contains(event.target) && !event.target.closest('.menuToggle')) {
         setMenuOpen(false);
       }
+      
+      // Close desktop search when clicking outside
+      if (desktopSearchRef.current && !desktopSearchRef.current.contains(event.target)) {
+        setSearchClicked(false);
+        setShowDesktopSuggestions(false);
+        setSearchQuery('');
+      }
     };
 
-    if (menuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -49,7 +73,43 @@ export const NavBar = () => {
 
   const toggleSearch = () => {
     setSearchClicked(!searchClicked);
+    if (!searchClicked) {
+      setTimeout(() => {
+        desktopSearchRef.current?.focus();
+      }, 100);
+    }
   };
+
+  const handleDesktopSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setShowDesktopSuggestions(true);
+  };
+
+  const handleMobileSearchFocus = () => {
+    setShowMobileSuggestions(true);
+  };
+
+  const handleMobileSearchChange = (e) => {
+    setMobileSearchQuery(e.target.value);
+  };
+
+  const handleSuggestionClick = (suggestion, isMobile = false) => {
+    if (isMobile) {
+      setMobileSearchQuery(suggestion);
+      setShowMobileSuggestions(false);
+      setMenuOpen(false); // Close mobile menu when navigating
+    } else {
+      setSearchQuery(suggestion);
+      setShowDesktopSuggestions(false);
+      setSearchClicked(false); // Close desktop search when navigating
+    }
+    // Navigate to executives section
+    window.location.href = '#executives';
+  };
+
+  const filteredSuggestions = searchOptions.filter(option =>
+    option.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className={`w-full h-16 fixed top-0 left-0 z-50 flex items-center transition-all duration-300 ${
@@ -70,7 +130,7 @@ export const NavBar = () => {
         </div>
 
         {/* Logo */}
-        <div className="absolute left-1/2 transform md:static md:transform-none">
+        <div className="absolute left-1/2 md:left-0 transform -translate-x-1/2 md:-translate-x-0 md:static md:transform-none">
           <NavLink to="/" className="block">
             <img src={TesaLogo} alt="TESA Logo" className="h-10 md:h-12 object-contain" />
           </NavLink>
@@ -78,8 +138,8 @@ export const NavBar = () => {
 
         {/* Desktop Nav Items */}
         <div className={`hidden md:flex items-center h-full ${
-      scrolled ? ' ' : 'border-b'
-    }`}>
+          scrolled ? ' ' : 'border-b'
+        }`}>
           {NavItems.map((nav, index) => (
             <div key={index} className={`h-full flex items-center ${nav.id === 5 ? '' : 'border-r-1 border-black'}`}>
               <NavItem NavUrl={nav.NavUrl} title={nav.Title} ids={nav.id} />
@@ -88,46 +148,80 @@ export const NavBar = () => {
         </div>
 
         {/* Desktop Right Side (Search + User) */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="relative">
-            <button 
-              className="focus:outline-none"
-              onClick={toggleSearch}
-              aria-label="Search"
-            >
-              <img src={SearchIcon} alt="Search" className="w-12 h-12 object-cover" />
-            </button>
+        <div className="hidden md:flex items-center gap-4 relative">
+          <div className="relative" ref={desktopSearchRef}>
+            {/* Search Icon (visible when search is not active) */}
+            {!searchClicked && (
+              <button 
+                className="focus:outline-none"
+                onClick={toggleSearch}
+                aria-label="Search"
+              >
+                <img src={SearchIcon} alt="Search" className="w-12 h-12 object-cover" />
+              </button>
+            )}
 
+            {/* Desktop Search Input */}
             <AnimatePresence>
               {searchClicked && (
                 <motion.div
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 240, opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  className="absolute right-0 top-full mt-2"
+                  initial={{ width: 50, opacity: 0 }}
+                  animate={{ width: 300, opacity: 1 }}
+                  exit={{ width: 50, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="relative"
                 >
                   <input
+                    ref={desktopSearchRef}
                     type="text"
-                    placeholder="Search..."
-                    className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF]"
+                    placeholder="Search for your executives..."
+                    value={searchQuery}
+                    onChange={handleDesktopSearchChange}
+                    className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] bg-white"
                     autoFocus
                   />
+                  <img 
+                    src={SearchIcon} 
+                    alt="Search" 
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 object-contain cursor-pointer" 
+                    onClick={() => {
+                      if (searchQuery) {
+                        window.location.href = '#executives';
+                      }
+                    }}
+                  />
+                  
+                  {/* Desktop Search Suggestions */}
+                  {showDesktopSuggestions && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto z-50"
+                    >
+                      {filteredSuggestions.length > 0 ? (
+                        filteredSuggestions.map((suggestion, index) => (
+                          <a
+                            key={index}
+                            href="#executives"
+                            className="block px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 text-gray-700 hover:text-[#007AFF] transition-colors no-underline"
+                            onClick={() => handleSuggestionClick(suggestion)}
+                          >
+                            {suggestion}
+                          </a>
+                        ))
+                      ) : (
+                        <div className="px-4 py-3 text-gray-500 text-center">
+                          No matching options found
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-
-          {/* <NavLink to="/" className="block">
-            <img src={UserIcon} alt="User Profile" className="w-12 h-12 object-contain" />
-          </NavLink> */}
         </div>
-
-        {/* Mobile: Right User Icon */}
-        {/* <div className="md:hidden">
-          <NavLink to="/profile" className="block">
-            <img src={UserIcon} alt="User Profile" className="w-12 h-12 object-contain" />
-          </NavLink>
-        </div> */}
 
         {/* Mobile Menu Dropdown */}
         <AnimatePresence>
@@ -140,20 +234,48 @@ export const NavBar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute left-0 top-full w-full bg-white shadow-lg rounded-b-lg overflow-hidden z-50"
             >
-              {/* Search Input */}
-              <div className="p-4 border-b border-gray-200">
+              {/* Mobile Search Input */}
+              <div className="p-4 border-b border-gray-200 relative">
                 <div className="relative">
                   <input
+                    ref={mobileSearchRef}
                     type="text"
                     placeholder="Search..."
-                    className="w-full p-3 pl-10 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF]"
+                    value={mobileSearchQuery}
+                    onChange={handleMobileSearchChange}
+                    onFocus={handleMobileSearchFocus}
+                    className="w-full p-3 pl-12 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF]"
                   />
                   <img 
                     src={SearchIcon} 
                     alt="Search" 
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10 object-contain" 
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 object-contain" 
                   />
                 </div>
+
+                {/* Mobile Search Suggestions */}
+                {showMobileSuggestions && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-4 right-4 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto z-50"
+                  >
+                    {searchOptions.map((suggestion, index) => (
+                      <a
+                        key={index}
+                        href="#executives"
+                        className="block px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 text-gray-700 hover:text-[#007AFF] transition-colors no-underline"
+                        onClick={() => {
+                          handleSuggestionClick(suggestion, true);
+                          setShowMobileSuggestions(false);
+                        }}
+                      >
+                        {suggestion}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
               </div>
 
               {/* Mobile Nav Links */}
