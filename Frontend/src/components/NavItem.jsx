@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 export const NavItem = ({ NavUrl, title, ids }) => {
   return (
     <NavLink 
-      to={NavUrl} 
+      to={NavUrl}
+      target={ids === 4 ? '_blank' : '_self'} 
+      rel="noopener noreferrer"
       className="h-full flex items-center relative" 
     >
       {({ isActive }) => (
