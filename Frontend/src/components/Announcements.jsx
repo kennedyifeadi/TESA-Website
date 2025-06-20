@@ -30,7 +30,7 @@ export const Announcements = () => {
               <span className='font-medium text-white text-2xl md:text-3xl' style={{ fontFamily: '"Aldrich", sans-serif' }}>
                 Announcements
               </span>
-              <form onSubmit={handleSearchSubmit} className='relative flex justify-end items-center bg-white h-[30%] mb-1 md:h-[30%] w-full rounded-md'>
+              <form onSubmit={handleSearchSubmit} className='relative flex justify-end items-center bg-white h-[50%] mb-1 md:h-[30%] w-full rounded-md'>
                 <img 
                   src={search} 
                   alt="" 
